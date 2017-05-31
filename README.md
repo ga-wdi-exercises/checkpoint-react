@@ -9,7 +9,7 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App title ={"wdi"} author={"Andy"}/>,
   document.getElementById('root')
 );
 ```
@@ -25,6 +25,8 @@ class App extends Component {
     return (
       <div>
         <h1>Welcome to</h1>
+        <h1>{this.props.title}</h1>
+        <h1>{this.props.author}</h1>
         <footer>This site is designed by</footer>
       </div>
     )
@@ -39,11 +41,12 @@ Given a component named `Post` located in `/js/components/Post/Post.js`. Edit th
 
 ```js
 // assume Component and Comments are imported above
+import Post from './Post/Post.js'
 class Main extends Component {
   render () {
     return (
       <div>
-        <Comments />
+        <Comments  />
       </div>
     )
   }
@@ -59,7 +62,13 @@ Products receives a property called `listing` containing an array of objects. Ea
 // assume Component and Product are imported above
 class Products extends Component {
   render () {
+    let listing = this.props.comments.map(name, price)=>(
+      Comment body = {name} key ={pirce}
+    )
+
     return (
+      <Comment body = {this.props.Comment}/>
+      <Comment price = {this.props.Comment}
       <div/>
     )
   }
@@ -74,6 +83,12 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor (props) {
+    super()
+    this.state = {
+      message = 'i found out this is great';
+    }
+  }
   render() {
     return (
       <div>
@@ -97,6 +112,12 @@ You are in your terminal, inside of an existing react application. Enter the com
 
 ```bash
 # your command(s) here
+
+import  {
+  BrowserRouter as Router,
+  Router,
+  Link,
+} from 'react-router-dom'
 ```
 
 ### Question #7
@@ -108,16 +129,18 @@ Edit the following code snippet. Add the Router component, and rewrite the rest 
 class App extends Component {
   render () {
     return (
+      <Router>
       <div>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <Link to="/" Component {Home}>Home</Link>
+          <Link to="/products" Component{ product}>Products</Link>
+          <Link to="/cart" Component {cart}>Shopping Cart</Link>
         </nav>
         <main/>
         <footer>This site is designed by us</footer>
       </div>
+      </Router>
     )
   }
 }
@@ -133,6 +156,10 @@ Edit the code snippet below. Only once when the component has loaded, make an AJ
 class App extends Component {
   // assume the constructor is complete
   render () {
+    axion.get('http://api.example.com/info')
+    .then((response) =>{
+      console.log("response")
+    })
     return (
       <div>
         <h1>Results</h1>
