@@ -8,8 +8,10 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 
 ```js
 // assume necessary modules/components are already imported above
+
+
 ReactDOM.render(
-  <App />,
+  <App title={'React Checkpoint'} author={'Adam Hoff'}/>,
   document.getElementById('root')
 );
 ```
@@ -24,8 +26,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to</h1>
-        <footer>This site is designed by</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>This site is designed by {this.props.author}</footer>
       </div>
     )
   }
@@ -39,6 +41,8 @@ Given a component named `Post` located in `/js/components/Post/Post.js`. Edit th
 
 ```js
 // assume Component and Comments are imported above
+import Post from '../Post/Post.js'
+
 class Main extends Component {
   render () {
     return (
@@ -53,13 +57,18 @@ class Main extends Component {
 
 ### Question #4
 
-Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Product` components that take `name` and `price` as incoming properties.
 
 ```js
 // assume Component and Product are imported above
 class Products extends Component {
+  let listings = this.props.listing.map((item, index) => (
+    <Listing body={[item.name, item.price].join(" ")} key={index}/>
+  ))
   render () {
     return (
+      <div>
+        <h3> {listings} </h3>
       <div/>
     )
   }
@@ -96,7 +105,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -108,16 +117,18 @@ Edit the following code snippet. Add the Router component, and rewrite the rest 
 class App extends Component {
   render () {
     return (
-      <div>
-        <h1>Welcome to My shopping site</h1>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
-        </nav>
-        <main/>
-        <footer>This site is designed by us</footer>
-      </div>
+      <Router>
+        <div>
+          <h1>Welcome to My shopping site</h1>
+          <div>
+            <div><Link to"/">Home</Link></div>
+            <div><Link to"/products">Products</Link></div>
+            <div><Link to"/cart">Shopping Cart</Link></div>
+          </div>
+          <main/>
+          <footer>This site is designed by us</footer>
+          </div>
+      </Router>
     )
   }
 }
