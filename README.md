@@ -98,12 +98,25 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      message: ""
+    }
+  }
+
+  handleMessage(e) {
+    this.setState({
+      message: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" onChange={(e) => this.handleMessage(e)}/>
         </form>
         <p>Message: { this.state.message }</p>
       </div>
