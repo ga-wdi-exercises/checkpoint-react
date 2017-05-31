@@ -9,7 +9,7 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App title={"Something"} Author={"Omar"} />,
   document.getElementById('root')
 );
 ```
@@ -24,8 +24,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to</h1>
-        <footer>This site is designed by</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>This site is designed by {this.props.author}</footer>
       </div>
     )
   }
@@ -43,7 +43,8 @@ class Main extends Component {
   render () {
     return (
       <div>
-        <Comments />
+        {this.props.post}
+        {this.post.comments}
       </div>
     )
   }
@@ -58,8 +59,14 @@ Products receives a property called `listing` containing an array of objects. Ea
 ```js
 // assume Component and Product are imported above
 class Products extends Component {
+  constructor (props) {
+    this.price = {}
+  }
   render () {
     return (
+      {this.props.name}
+      <Product body={this.props.name} {this.props.price[0]}/>
+
       <div/>
     )
   }
@@ -74,6 +81,18 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor (props) {
+  super()
+  this.state = {
+    text: props.text
+  }
+}
+handleClick (e) {
+  let newMessage = prompt("Edit your text")
+  this.setState({
+    message: newMessage
+  })
+}
   render() {
     return (
       <div>
@@ -81,7 +100,8 @@ class App extends Component {
           <label>Input: </label>
           <input type="text" />
         </form>
-        <p>Message: { this.state.message }</p>
+        <p>Message: { this.state.message }
+          <button onClick={(e) => this.handleClick(e)}>Edit Message</button></p>
       </div>
     );
   }
