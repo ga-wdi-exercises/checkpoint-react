@@ -139,12 +139,15 @@ class App extends Component {
       <div>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <Link to="/">Home</Link>
+          <Link to="/products">Product</Link>
+          <Link to="/cart">Cart</Link>
         </nav>
+          <Route exact path="/" component={Home} />
+          <Route path="/products" component={Products} />
+          <Route path="/cart" component={Cart} />
         <main/>
-        <footer>This site is designed by us</footer>
+          <footer>This site is designed by us</footer>
       </div>
     )
   }
@@ -160,6 +163,21 @@ Edit the code snippet below. Only once when the component has loaded, make an AJ
 // assume all necessary components are imported above
 class App extends Component {
   // assume the constructor is complete
+  componentDidMount(){
+    let url = "http://api.example.com/info"
+    $.ajax({
+      url,
+      method: "GET",
+      dataType: "jsonp"
+    }).then((response) => {
+      console.log(response)
+      this.setState({ apiResults: response })
+    },
+        (err) => {
+          console.log(err)
+        }
+      )
+    }
   render () {
     return (
       <div>
