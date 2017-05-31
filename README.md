@@ -43,7 +43,8 @@ class Main extends Component {
   render () {
     return (
       <div>
-        <Comments />
+        {this.props.post}
+        {this.post.comments}
       </div>
     )
   }
@@ -58,8 +59,14 @@ Products receives a property called `listing` containing an array of objects. Ea
 ```js
 // assume Component and Product are imported above
 class Products extends Component {
+  constructor (props) {
+    this.price = {}
+  }
   render () {
     return (
+      {this.props.name}
+      <Product body={this.props.name} {this.props.price[0]}/>
+
       <div/>
     )
   }
