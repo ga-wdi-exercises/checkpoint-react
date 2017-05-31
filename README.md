@@ -9,7 +9,7 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App title="Checkpoint fun" author="Caroline Chen"/>,
   document.getElementById('root')
 );
 ```
@@ -24,8 +24,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to</h1>
-        <footer>This site is designed by</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>This site is designed by {this.props.author}</footer>
       </div>
     )
   }
@@ -39,10 +39,12 @@ Given a component named `Post` located in `/js/components/Post/Post.js`. Edit th
 
 ```js
 // assume Component and Comments are imported above
+require Post from "../Post/Post"
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
@@ -53,14 +55,20 @@ class Main extends Component {
 
 ### Question #4
 
-Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Property` components that take `name` and `price` as incoming properties.
+
+//listing=[{name: "name", price: number}]
+
 
 ```js
 // assume Component and Product are imported above
 class Products extends Component {
   render () {
+      {this.props.listing.name}
+      {this.props.listing.price}
     return (
-      <div/>
+      <div>
+      </div>
     )
   }
 }
@@ -74,6 +82,21 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor (props) {
+    super(props)
+  }
+//set initial state
+  this.state = {
+    this.message = this.message
+  }
+//grab value of what's entered into input field
+  var newMessage = {
+    message = this.value.input(e)
+  }
+//set state so message is now what's entered into input field
+  this.setState = {
+      this.message = this.newMessage
+  }
   render() {
     return (
       <div>
@@ -96,7 +119,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save React_Router
 ```
 
 ### Question #7
@@ -110,12 +133,21 @@ class App extends Component {
     return (
       <div>
         <h1>Welcome to My shopping site</h1>
+        <Router
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <Link To="/">Home</a>
+          <Link To="/products">Products</a>
+          <Link To="/cart">Shopping Cart</a>
         </nav>
-        <main/>
+        <main>
+          <route>
+          //something along the lines of
+            <url="./home">
+            <url="./products">
+            <url="./shoppingcart">
+          </route>
+        </main>
+        />
         <footer>This site is designed by us</footer>
       </div>
     )
