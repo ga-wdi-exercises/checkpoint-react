@@ -117,16 +117,18 @@ Edit the following code snippet. Add the Router component, and rewrite the rest 
 class App extends Component {
   render () {
     return (
-      <div>
-        <h1>Welcome to My shopping site</h1>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
-        </nav>
-        <main/>
-        <footer>This site is designed by us</footer>
-      </div>
+      <Router>
+        <div>
+          <h1>Welcome to My shopping site</h1>
+          <div>
+            <div><Link to"/">Home</Link></div>
+            <div><Link to"/products">Products</Link></div>
+            <div><Link to"/cart">Shopping Cart</Link></div>
+          </div>
+          <main/>
+          <footer>This site is designed by us</footer>
+          </div>
+      </Router>
     )
   }
 }
