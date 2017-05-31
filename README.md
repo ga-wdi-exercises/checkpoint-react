@@ -42,11 +42,14 @@ Given a component named `Post` located in `/js/components/Post/Post.js`. Edit th
 
 ```js
 // assume Component and Comments are imported above
+import Post from "../Post/Post.js"
+
 class Main extends Component {
   render () {
     return (
       <div>
         <Comments />
+        <Post />
       </div>
     )
   }
@@ -62,8 +65,17 @@ Products receives a property called `listing` containing an array of objects. Ea
 // assume Component and Product are imported above
 class Products extends Component {
   render () {
+    let listing = listing.map((item, i) => {
+      return (
+        <div key={i}>
+          <p> {item.name} : {item.price} </p>
+        </div>
+      )
+    })
     return (
-      <div/>
+      <div>
+        {listing}
+      </div>
     )
   }
 }
