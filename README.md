@@ -141,13 +141,19 @@ class App extends Component {
   render () {
     return (
       <div>
+      <Router>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <Link to="/">Home</Link>
+          <Link to="/products">Products</Link>
+          <Link to="/cart">Shopping Cart</Link>
         </nav>
-        <main/>
+        <main>
+          <Route path="/" render={Home}/>
+          <Route path="/products" render={Products}/>
+          <Route path="/cart" render={ShoppingCart}/>
+        </main>
+        </Router>
         <footer>This site is designed by us</footer>
       </div>
     )
