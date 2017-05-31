@@ -1,4 +1,4 @@
-# Week 11
+# React Intro Checkpoint
 
 ## React
 
@@ -7,7 +7,7 @@
 Edit the snippet below. Pass default properties into the `App` component, named `title` & `author`. Choose your own values to pass down, make sure they're valid.
 
 ```js
-// assume React, ReactDOM, & App are already imported above
+// assume necessary modules/components are already imported above
 ReactDOM.render(
   <App />,
   document.getElementById('root')
@@ -35,7 +35,7 @@ class App extends Component {
 
 ### Question #3
 
-Given a component named `Post` located in `/js/components/Post/Post.js`. Edit the below code snippet to import the `Post` component and render it as a child within `Main` (`Main` is located in `/js/components/Main/Main.js`).
+Given a component named `Post` located in `/js/components/Post/Post.js`. Edit the below code snippet to import the `Post` component and render it as a child within `Main`'s display (`Main` is located in `/js/components/Main/Main.js`).
 
 ```js
 // assume Component and Comments are imported above
