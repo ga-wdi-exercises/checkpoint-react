@@ -90,8 +90,8 @@ class App extends Component {
     super()
     this.state {
       value: ''
-      this.handleChange = this.handleChange.bind(this);  
-    }
+    }  
+    this.handleChange = this.handleChange.bind(this);      
   }
 
   handleChange(event) {
@@ -119,7 +119,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -131,16 +131,32 @@ Edit the following code snippet. Add the Router component, and rewrite the rest 
 class App extends Component {
   render () {
     return (
-      <div>
-        <h1>Welcome to My shopping site</h1>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
-        </nav>
-        <main/>
-        <footer>This site is designed by us</footer>
-      </div>
+      <Router>
+        <div>
+          <h1>Welcome to My shopping site</h1>
+          <nav>
+            <Link to
+
+
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Shopping Cart</a>
+          </nav>
+          <main
+          <Route
+            exact path='/'
+            render={() => {
+              return (
+                <Home />
+              )
+            }}
+          />
+
+
+          />
+          <footer>This site is designed by us</footer>
+        </div>
+      </Router>
     )
   }
 }
