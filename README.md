@@ -9,9 +9,21 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App title={'title'},author={'author'}/>,
   document.getElementById('root')
-);
+)
+class Title extends Components{
+  render () {
+    return (
+    )
+  }
+}
+class Author extends Components{
+  render () {
+    return (
+    )
+  }
+};
 ```
 
 ### Question #2
@@ -25,6 +37,8 @@ class App extends Component {
     return (
       <div>
         <h1>Welcome to</h1>
+              <h1>{this.props.title}</h1>
+              <h3>{this.props.author}</h3>
         <footer>This site is designed by</footer>
       </div>
     )
@@ -43,9 +57,10 @@ class Main extends Component {
   render () {
     return (
       <div>
-        <Comments />
+        <h1>{this.props.title}</h1>
+        <p>By {this.props.author}</p>
       </div>
-    )
+    );
   }
 }
 // assume we are exporting correctly below
@@ -53,7 +68,7 @@ class Main extends Component {
 
 ### Question #4
 
-Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Product` components that take `name` and `price` as incoming properties.
 
 ```js
 // assume Component and Product are imported above
@@ -96,7 +111,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -115,7 +130,12 @@ class App extends Component {
           <a href="/products">Products</a>
           <a href="/cart">Shopping Cart</a>
         </nav>
-        <main/>
+
+        <main>
+          <Route path="/" render={() =>{ return(<HomeContainer/>)}}/>
+          <Route path="/products" render={() =>{ return(ProductsContainer)}}/>
+          <Route path="/cart" render={() =>{return(CartContainer)}}/>
+        </main>
         <footer>This site is designed by us</footer>
       </div>
     )
@@ -133,6 +153,18 @@ Edit the code snippet below. Only once when the component has loaded, make an AJ
 class App extends Component {
   // assume the constructor is complete
   render () {
+    axios.get('http://api.example.com/info', {
+    params: {
+      key1: value1,
+      key2: value2
+    }
+  })
+  .then((response) => {
+    console.log(response)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
     return (
       <div>
         <h1>Results</h1>
