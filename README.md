@@ -9,7 +9,10 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App
+    title={data.title}
+    author={data.author}
+  />,
   document.getElementById('root')
 );
 ```
@@ -24,8 +27,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to</h1>
-        <footer>This site is designed by</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>This site is designed by {this.props.author}</footer>
       </div>
     )
   }
@@ -39,11 +42,14 @@ Given a component named `Post` located in `/js/components/Post/Post.js`. Edit th
 
 ```js
 // assume Component and Comments are imported above
+import Post from "../Post/Post.js"
+
 class Main extends Component {
   render () {
     return (
       <div>
         <Comments />
+        <Post />
       </div>
     )
   }
@@ -59,8 +65,17 @@ Products receives a property called `listing` containing an array of objects. Ea
 // assume Component and Product are imported above
 class Products extends Component {
   render () {
+    let listing = listing.map((item, i) => {
+      return (
+        <div key={i}>
+          <p> {item.name} : {item.price} </p>
+        </div>
+      )
+    })
     return (
-      <div/>
+      <div>
+        {listing}
+      </div>
     )
   }
 }
@@ -74,12 +89,25 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      message: "",
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(e) {
+    let name = event.target.name
+    this.setState ({
+      [name]: event.target.value
+    })
+  }
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" name="message" onChange={this.handleChange} />
         </form>
         <p>Message: { this.state.message }</p>
       </div>
@@ -96,7 +124,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -111,12 +139,15 @@ class App extends Component {
       <div>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <Link to="/">Home</Link>
+          <Link to="/products">Product</Link>
+          <Link to="/cart">Cart</Link>
         </nav>
+          <Route exact path="/" component={Home} />
+          <Route path="/products" component={Products} />
+          <Route path="/cart" component={Cart} />
         <main/>
-        <footer>This site is designed by us</footer>
+          <footer>This site is designed by us</footer>
       </div>
     )
   }
@@ -132,6 +163,21 @@ Edit the code snippet below. Only once when the component has loaded, make an AJ
 // assume all necessary components are imported above
 class App extends Component {
   // assume the constructor is complete
+  componentDidMount(){
+    let url = "http://api.example.com/info"
+    $.ajax({
+      url,
+      method: "GET",
+      dataType: "jsonp"
+    }).then((response) => {
+      console.log(response)
+      this.setState({ apiResults: response })
+    },
+        (err) => {
+          console.log(err)
+        }
+      )
+    }
   render () {
     return (
       <div>
