@@ -183,6 +183,14 @@ Edit the code snippet below. Only once when the component has loaded, make an AJ
 // assume all necessary components are imported above
 class App extends Component {
   // assume the constructor is complete
+  axios.get("http://api.example.com/info")
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+
   render () {
     return (
       <div>
