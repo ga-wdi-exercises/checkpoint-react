@@ -61,8 +61,29 @@ Products receives a property called `listing` containing an array of objects. Ea
 ```js
 // assume Component and Product are imported above
 class Products extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      listing: [
+        {
+          name: "Soap",
+          price: 1
+        }
+      ]
+    }
+  }
   render () {
+    let listingRender = this.state.listing.map((listing, i) => {
+      return (
+        <div key={i}>
+          <p>{listing.name}</p>
+          <p>{listing.price}</p>
+        </div>
+      )
+    })
     return (
+      <div>
+        {listingRender}
       <div/>
     )
   }
