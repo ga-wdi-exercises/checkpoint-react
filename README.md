@@ -89,12 +89,25 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      message: "",
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(e) {
+    let name = event.target.name
+    this.setState ({
+      [name]: event.target.value
+    })
+  }
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" name="message" onChange={this.handleChange} />
         </form>
         <p>Message: { this.state.message }</p>
       </div>
@@ -111,7 +124,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
