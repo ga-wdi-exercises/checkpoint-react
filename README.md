@@ -9,7 +9,11 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App
+  title={app.title}
+  author={app.author}
+
+  />,
   document.getElementById('root')
 );
 ```
@@ -25,6 +29,8 @@ class App extends Component {
     return (
       <div>
         <h1>Welcome to</h1>
+        <p>{This.props.title}</p>
+        <p>{this.props.author}</p>
         <footer>This site is designed by</footer>
       </div>
     )
@@ -39,10 +45,13 @@ Given a component named `Post` located in `/js/components/Post/Post.js`. Edit th
 
 ```js
 // assume Component and Comments are imported above
+import Post from './Post.js'
 class Main extends Component {
   render () {
+
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
@@ -53,13 +62,18 @@ class Main extends Component {
 
 ### Question #4
 
-Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Product` components that take `name` and `price` as incoming properties.
 
 ```js
 // assume Component and Product are imported above
 class Products extends Component {
   render () {
+      var listings = product.listing.map((list, index){
+          {list.price} {list.name}
+      })
     return (
+        <div>
+        {listings}
       <div/>
     )
   }
@@ -74,12 +88,24 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+    constructor(props) {
+    super()
+    this.state = {
+        content: " "
+}
+    this.handleMessage = this.handleMessage.bind(this)
+}
+
+handleMessage(e){
+    this.props.handleMessage(e.target.body)
+}
+
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input onChange= {this.handleMessage} type="text" body="content" />
         </form>
         <p>Message: { this.state.message }</p>
       </div>
@@ -96,7 +122,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
