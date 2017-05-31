@@ -57,9 +57,10 @@ class Main extends Component {
   render () {
     return (
       <div>
-        <Comments />
+        <h1>{this.props.title}</h1>
+        <p>By {this.props.author}</p>
       </div>
-    )
+    );
   }
 }
 // assume we are exporting correctly below
@@ -110,7 +111,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -129,7 +130,12 @@ class App extends Component {
           <a href="/products">Products</a>
           <a href="/cart">Shopping Cart</a>
         </nav>
-        <main/>
+
+        <main>
+          <Route path="/" render={() =>{ return(<HomeContainer/>)}}/>
+          <Route path="/products" render={() =>{ return(ProductsContainer)}}/>
+          <Route path="/cart" render={() =>{return(CartContainer)}}/>
+        </main>
         <footer>This site is designed by us</footer>
       </div>
     )
@@ -147,6 +153,18 @@ Edit the code snippet below. Only once when the component has loaded, make an AJ
 class App extends Component {
   // assume the constructor is complete
   render () {
+    axios.get('http://api.example.com/info', {
+    params: {
+      key1: value1,
+      key2: value2
+    }
+  })
+  .then((response) => {
+    console.log(response)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
     return (
       <div>
         <h1>Results</h1>
