@@ -42,10 +42,13 @@ Given a component named `Post` located in `/js/components/Post/Post.js`. Edit th
 
 ```js
 // assume Component and Comments are imported above
+import Post from '/js/components/Post/Post.js'
+
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
