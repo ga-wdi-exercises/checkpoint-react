@@ -24,7 +24,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to</h1>
+        <h1>Welcome to {}</h1>
         <footer>This site is designed by</footer>
       </div>
     )
@@ -53,7 +53,7 @@ class Main extends Component {
 
 ### Question #4
 
-Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Product` components that take `name` and `price` as incoming properties.
 
 ```js
 // assume Component and Product are imported above
