@@ -9,7 +9,7 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App title="Game of Thrones" author="George RR Martin"/>,
   document.getElementById('root')
 );
 ```
