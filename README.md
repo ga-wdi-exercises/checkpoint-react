@@ -81,6 +81,18 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor (props) {
+  super()
+  this.state = {
+    text: props.text
+  }
+}
+handleClick (e) {
+  let newMessage = prompt("Edit your text")
+  this.setState({
+    message: newMessage
+  })
+}
   render() {
     return (
       <div>
@@ -88,7 +100,8 @@ class App extends Component {
           <label>Input: </label>
           <input type="text" />
         </form>
-        <p>Message: { this.state.message }</p>
+        <p>Message: { this.state.message }
+          <button onClick={(e) => this.handleClick(e)}>Edit Message</button></p>
       </div>
     );
   }
