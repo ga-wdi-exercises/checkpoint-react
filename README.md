@@ -65,7 +65,10 @@ Products receives a property called `listing` containing an array of objects. Ea
 // assume Component and Product are imported above
 class Products extends Component {
   render () {
+    let listing=
     return (
+      <div>
+
       <div/>
     )
   }
@@ -80,12 +83,24 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      message: ""
+    }
+  }
+
+  handleChange(e) {
+    this.setState ({
+      message=this.input
+    })
+  }
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" onChange={(e) => this.handleChange(e)}/>
         </form>
         <p>Message: { this.state.message }</p>
       </div>
