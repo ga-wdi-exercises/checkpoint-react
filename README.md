@@ -9,7 +9,10 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App />,
+  <App
+    title={"Infinite Jest"}
+    author={"David Foster Wallace"}
+  />,
   document.getElementById('root')
 );
 ```
@@ -53,7 +56,7 @@ class Main extends Component {
 
 ### Question #4
 
-Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Product` components that take `name` and `price` as incoming properties.
 
 ```js
 // assume Component and Product are imported above
