@@ -9,7 +9,7 @@ Edit the snippet below. Pass default properties into the `App` component, named 
 ```js
 // assume necessary modules/components are already imported above
 ReactDOM.render(
-  <App title={'bozo'} author={'clown'} />,
+  <App title={'clowns'} author={'bozo'} />,
   document.getElementById('root')
 );
 ```
@@ -24,8 +24,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to</h1>
-        <footer>This site is designed by</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>Brought to you by {this.props.author}</footer>
       </div>
     )
   }
@@ -38,11 +38,16 @@ class App extends Component {
 Given a component named `Post` located in `/js/components/Post/Post.js`. Edit the below code snippet to import the `Post` component and render it as a child within `Main`'s display (`Main` is located in `/js/components/Main/Main.js`).
 
 ```js
+
+import Post from `/js/components/Post/Post.js`
 // assume Component and Comments are imported above
+
+
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post body={this.props.post} />
         <Comments />
       </div>
     )
@@ -59,7 +64,14 @@ Products receives a property called `listing` containing an array of objects. Ea
 // assume Component and Product are imported above
 class Products extends Component {
   render () {
+
+      let comments = []
+      listing.map((house) => {
+        comments.push(<Comment name={house.name} price={house.price} />)
+      })
     return (
+      <div>
+        {comments}
       <div/>
     )
   }
@@ -74,12 +86,23 @@ In the code snippet below we want text entered into the input field to be displa
 ```js
 // assume all necessary components are imported above
 class App extends Component {
+  constructor() {
+    super()
+    this.state {
+      value: ''
+      this.handleChange = this.handleChange.bind(this);  
+    }
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
         </form>
         <p>Message: { this.state.message }</p>
       </div>
