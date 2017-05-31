@@ -105,7 +105,7 @@ class App extends Component {
 You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
