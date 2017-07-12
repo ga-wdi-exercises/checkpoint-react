@@ -53,7 +53,7 @@ class Main extends Component {
 
 ### Question #4
 
-Products receives a property called `listing` containing an array of objects. Each object contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+Products receives a prop called `listings` containing an array of objects. Each object in `listings` contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
 
 ```js
 // assume Component and Product are imported above
@@ -69,7 +69,11 @@ class Products extends Component {
 
 ### Question #5
 
-In the code snippet below we want text entered into the input field to be displayed inside the `<p>`. Set up the state variable and add logic to update it as characters are typed.
+In the code snippet below we want text entered into the input field to be displayed inside the `<p>`. Do the following things...
+  - Define a property `message` on the state on the `App` component
+  - Whenever input is entered into the form's input, state should be updated.
+    > hint: `onChange`
+
 
 ```js
 // assume all necessary components are imported above
@@ -93,7 +97,7 @@ class App extends Component {
 
 ### Question #6
 
-You are in your terminal, inside of an existing react application. Enter the command(s) needed to add `React Router` to the current app.
+You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
 # your command(s) here
@@ -101,7 +105,7 @@ You are in your terminal, inside of an existing react application. Enter the com
 
 ### Question #7
 
-Edit the following code snippet. Add the Router component, and rewrite the rest of this snippet to incorporate Links and matching Routes. Each route will render a component matching it's link text (without spaces).
+Edit the following code snippet. Add the `<Router>` provider component, and rewrite the rest of this snippet to incorporate `<Link/>`s and matching `<Route/>`s. Each `<Route/>` will render a component at a `path` matching its `<Link/>`'s `to` prop (without spaces).
 
 ```js
 // assume all necessary components are imported above
