@@ -11,7 +11,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 ReactDOM.render(
-  <App />,
+  <App title={'Harry Potter and the whatever whatever'} author={'J.K. Rowling'}/>,
   document.getElementById('root')
 );
 ```
@@ -27,8 +27,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to ______</h1>
-        <footer>This site is designed by ______</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>This site is designed by {this.props.author}</footer>
       </div>
     )
   }
@@ -44,11 +44,13 @@ Assume we have defined a component named `Post` that is located in `/js/componen
 ```js
 import React, { Component } from "react"
 import Comments from "../Comments"
+import Post from './Post.js'
 
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
@@ -69,8 +71,19 @@ import Comment from "../Comment"
 
 class Products extends Component {
   render () {
-    return (
+    let listings = this.props.comments.map((listing, i)=> {
+      return (
+      <div>
+          <p key={i}>{listing.name}</p>
+          <p key={i}>{listing.price}</p>
       <div/>
+    })
+    )
+    return(
+      <div>
+        <h2>Comments</h2>
+        {listings}
+      </div>
     )
   }
 }
@@ -91,12 +104,26 @@ In the code snippet below we want text entered into the input field to be displa
 import React, { Component } from "react"
 
 class App extends Component {
-  render() {
+  constructor(){
+    super()
+    this.state = {
+      message: " "
+    }
+  }
+
+  handleClick(e){
+    let newMessage = onClick(e)
+      this.setState({
+        message: newMessage
+      })
+  }
+}  render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text", placeholder="update message here" />
+          <button onClick-{(e) => this.handleClick(e)}>Update message!</button>
         </form>
         <p>Message: { this.state.message }</p>
       </div>
@@ -114,7 +141,7 @@ export default App
 You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -127,17 +154,23 @@ Edit the following code snippet. Add the `<Router>` provider component, and rewr
 class App extends Component {
   render () {
     return (
-      <div>
-        <h1>Welcome to My shopping site</h1>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
-        </nav>
-        <main/>
-        <footer>This site is designed by us</footer>
-      </div>
-    )
+      <Router>
+        <div>
+          <h1>Welcome to My shopping site</h1>
+          <div className="nav">
+              <div className="nav-item"><Link to="/">Home</Link></div>
+              <div className="nav-item"><Link to="/products">Products</Link></div>
+              <div className="nav-item"><Link to="/cart">Cart</Link></div>
+            </div>
+            <div className="main">
+              <Route exact path="/" component={Home} />
+              <Route path="/Products" component={Products} />
+              <Route path="/cart" component={Cart} />
+            </div>
+          <footer>This site is designed by us</footer>
+        </div>
+      </Router>
+    );
   }
 }
 
@@ -154,13 +187,24 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 // Assume all necessary components are imported above
 
 class App extends Component {
-  // Assume the constructor is complete
-  
+  componentDidMount() {
+      // Code to be executed once the Results component has finished rendering
+      this.props.clearSearch()
+      this.getApi()
+    }
+    getApi() {
+        axios.get('https://www.nutritionix.com/business/api')
+          .then((response) => {
+            this.setState({
+              results: response.data.results
+            })
   render () {
+    let results = this.state.results.map((result, index) => {
+      return <option value={result.foods} key={index}>{result.foods}</option>
     return (
       <div>
         <h1>Results</h1>
-        <div>{ this.state.results }</div>
+        <div>{ this.state.results.foods }</div>
       </div>
     )
   }
