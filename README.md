@@ -135,7 +135,9 @@ export default App
 You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install -s react-router
+or
+yarn install react-router
 ```
 
 ### Question #7
@@ -151,11 +153,21 @@ class App extends Component {
       <div>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <link to="/" >Home</Link>
+          <link to="/products" >Products</Link>
+          <link to="/cart" >Shopping Cart</Link>
         </nav>
-        <main/>
+        <main>
+          <Route path="/" render={()=>{
+          return <Home />
+          }}/>
+          <Route path="/products" render={()=>{
+          return <Products />
+            }}/>
+          <Route path="/cart" render={()=>{
+          return <ShoppingCart />
+            }}/>
+        </main>
         <footer>This site is designed by us</footer>
       </div>
     )
@@ -176,7 +188,13 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 
 class App extends Component {
   // Assume the constructor is complete
-  
+  componentDidMount(){
+    axios.get('http://api.example.com/info',{}).then((resData)=>{
+      this.setState({
+        results: resData
+      })
+    })
+  }
   render () {
     return (
       <div>
