@@ -4,10 +4,12 @@
 
 ### Question #1
 
-Edit the snippet below. Pass default properties into the `App` component, named `title` & `author`. Choose your own values to pass down, make sure they're valid.
+Edit the snippet below so that two properties – `title` and `author` – are passed down into the `App` component. The values that are passed down can be of your choosing.
 
 ```js
-// assume necessary modules/components are already imported above
+import React from "react"
+import ReactDOM from "react-dom"
+
 ReactDOM.render(
   <App />,
   document.getElementById('root')
@@ -16,10 +18,11 @@ ReactDOM.render(
 
 ### Question #2
 
-Edit the snippet below. Display the passed in properties `title` & `author` in an appropriate part of the template.
+Edit the snippet below so that the passed-in properties from the previous question –  `title` and `author` – are rendered in the `App` component's UI.
 
 ```js
-// assume Component is imported above
+import React, { Component } from "react"
+
 class App extends Component {
   render () {
     return (
@@ -30,15 +33,18 @@ class App extends Component {
     )
   }
 }
-// assume we are exporting correctly below
+
+export default App
 ```
 
 ### Question #3
 
-Given a component named `Post` located in `/js/components/Post/Post.js`. Edit the below code snippet to import the `Post` component and render it as a child within `Main`'s display (`Main` is located in `/js/components/Main/Main.js`).
+Assume we have defined a component named `Post` that is located in `/js/components/Post.js`. Edit the below code snippet to import the `Post` component and render it as a child within the `Main` UI. `Main` is located in `/js/components/Main.js`.
 
 ```js
-// assume Component and Comments are imported above
+import React, { Component } from "react"
+import Comments from "../Comments"
+
 class Main extends Component {
   render () {
     return (
@@ -48,15 +54,19 @@ class Main extends Component {
     )
   }
 }
-// assume we are exporting correctly below
+
+export default Main
 ```
 
 ### Question #4
 
-Products receives a prop called `listings` containing an array of objects. Each object in `listings` contains a key for `name` (a string) and `price` (a number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+`Products` receives a prop called `listings`, which contains an array of objects. Each object in `listings` contains a key for `name` (string) and `price` (number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
 
 ```js
-// assume Component and Product are imported above
+import React, { Component } from "react"
+import Products from "../Products"
+import Comment from "../Comment"
+
 class Products extends Component {
   render () {
     return (
@@ -64,19 +74,22 @@ class Products extends Component {
     )
   }
 }
-// assume we are exporting correctly below
+
+export default Products
 ```
 
 ### Question #5
 
 In the code snippet below we want text entered into the input field to be displayed inside the `<p>`. Do the following things...
-  - Define a property `message` on the state on the `App` component
-  - Whenever input is entered into the form's input, state should be updated.
-    > hint: `onChange`
+- Define a property `message` in the `state` of the `App` component
+- Make it so that whenever the form's input is modified, `message` in `state` is updated accordingly
+
+> Hint: `onChange`
 
 
 ```js
-// assume all necessary components are imported above
+import React, { Component } from "react"
+
 class App extends Component {
   render() {
     return (
@@ -90,7 +103,8 @@ class App extends Component {
     );
   }
 }
-// assume we are exporting correctly below
+
+export default App
 ```
 
 ## React-Router
@@ -125,12 +139,13 @@ class App extends Component {
     )
   }
 }
-// assume we are exporting correctly below
+
+export default App
 ```
 
 ### Question #8
 
-Edit the code snippet below. Only once when the component has loaded, make an AJAX GET request to 'http://api.example.com/info' and display the results in the provided `<div>`.
+Edit the code snippet below so that once the `App` component has loaded, an AJAX GET request is made to 'http://api.example.com/info'. Display the results of that request in the provided `<div>`.
 
 ```js
 // assume all necessary components are imported above
@@ -145,5 +160,6 @@ class App extends Component {
     )
   }
 }
-// assume we are exporting correctly below
+
+export default App
 ```
