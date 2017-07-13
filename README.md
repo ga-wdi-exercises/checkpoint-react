@@ -146,7 +146,9 @@ export default App
 
 ### Question #8
 
-Edit the code snippet below so that once the `App` component has loaded, an AJAX GET request is made to 'http://api.example.com/info'. Display the results of that request in the provided `<div>`.
+Edit the code snippet below so that once the `App` component has loaded, a GET request is made to 'http://api.example.com/info'. Display the results of that request in the provided `<div>`.
+
+> You can use the API tool of your choice to answer this question.
 
 ```js
 // Assume all necessary components are imported above
