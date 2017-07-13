@@ -10,10 +10,14 @@ Edit the snippet below so that two properties – `title` and `author` – are p
 import React from "react"
 import ReactDOM from "react-dom"
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+render() {
+  return(
+    <div>
+      <p>{this.props.title}</p>
+      <p>{this.props.author}</p>
+    </div>
+  )
+}
 ```
 
 ### Question #2
@@ -24,14 +28,14 @@ Edit the snippet below so that the passed-in properties from the previous questi
 import React, { Component } from "react"
 
 class App extends Component {
-  render () {
-    return (
-      <div>
-        <h1>Welcome to ______</h1>
-        <footer>This site is designed by ______</footer>
-      </div>
-    )
-  }
+  render() {
+  return(
+    <div>
+<p>{this.props.author}</p>
+      <p>{this.props.title}</p>
+    </div>
+  )
+}
 }
 
 export default App
@@ -44,11 +48,14 @@ Assume we have defined a component named `Post` that is located in `/js/componen
 ```js
 import React, { Component } from "react"
 import Comments from "../Comments"
+import Post from "/js/components/Post.js"
+
 
 class Main extends Component {
   render () {
     return (
       <div>
+      <p>{this.props.Post}</p>
         <Comments />
       </div>
     )
@@ -74,6 +81,7 @@ class Products extends Component {
     )
   }
 }
+// I don't know.  I really don't feel comfortable with React still, and I know I need to.
 
 export default Products
 ```
@@ -114,7 +122,7 @@ export default App
 You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+#npm install --save react-router
 ```
 
 ### Question #7
@@ -155,7 +163,7 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 
 class App extends Component {
   // Assume the constructor is complete
-  
+
   render () {
     return (
       <div>
@@ -167,4 +175,5 @@ class App extends Component {
 }
 
 export default App
+// oh god, react and API.  Hard pass.  I can't do that.
 ```
