@@ -11,7 +11,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 ReactDOM.render(
-  <App />,
+  <App title={this.title="Ender's Game"} author={this.author="Orson Scott Card"} />,
   document.getElementById('root')
 );
 ```
@@ -27,8 +27,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to ______</h1>
-        <footer>This site is designed by ______</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>This site is designed by {this.props.author}/footer>
       </div>
     )
   }
@@ -44,11 +44,13 @@ Assume we have defined a component named `Post` that is located in `/js/componen
 ```js
 import React, { Component } from "react"
 import Comments from "../Comments"
+import Post from "./js/components/Post.js"
 
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
@@ -56,6 +58,7 @@ class Main extends Component {
 }
 
 export default Main
+//Why do i need to know the locatin of main?
 ```
 
 ### Question #4
