@@ -4,7 +4,7 @@
 
 ### Question #1
 
-Edit the snippet below so that two properties – `title` and `author` – are passed down into the `App` component. The values that are passed down can be of your choosing.
+Edit the snippet below so that two properties – `title` and `author` – are passed down into the `App` component as props. The values that are passed down can be of your choosing.
 
 ```js
 import React from "react"
@@ -27,8 +27,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to</h1>
-        <footer>This site is designed by</footer>
+        <h1>Welcome to ______</h1>
+        <footer>This site is designed by ______</footer>
       </div>
     )
   }
@@ -60,7 +60,7 @@ export default Main
 
 ### Question #4
 
-`Products` receives a prop called `listings`, which contains an array of objects. Each object in `listings` contains a key for `name` (string) and `price` (number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as incoming properties.
+`Products` receives a prop called `listings`, which contains an array of objects. Each object in `listings` contains a key for `name` (string) and `price` (number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as props.
 
 ```js
 import React, { Component } from "react"
@@ -122,7 +122,8 @@ You are in your terminal, inside of an existing React application. Enter the com
 Edit the following code snippet. Add the `<Router>` provider component, and rewrite the rest of this snippet to incorporate `<Link/>`s and matching `<Route/>`s. Each `<Route/>` will render a component at a `path` matching its `<Link/>`'s `to` prop (without spaces).
 
 ```js
-// assume all necessary components are imported above
+// Assume all necessary components are imported above
+
 class App extends Component {
   render () {
     return (
@@ -148,9 +149,11 @@ export default App
 Edit the code snippet below so that once the `App` component has loaded, an AJAX GET request is made to 'http://api.example.com/info'. Display the results of that request in the provided `<div>`.
 
 ```js
-// assume all necessary components are imported above
+// Assume all necessary components are imported above
+
 class App extends Component {
-  // assume the constructor is complete
+  // Assume the constructor is complete
+  
   render () {
     return (
       <div>
