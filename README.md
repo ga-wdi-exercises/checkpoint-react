@@ -107,10 +107,16 @@ class App extends Component {
           <input type="text" />
         </form>
         <p>Message: { this.state.message }</p>
+        setMessage(e){
+          this.setState({
+            messageText: e.target.value
+          })
+        }
       </div>
     );
   }
 }
+
 
 export default App
 ```
