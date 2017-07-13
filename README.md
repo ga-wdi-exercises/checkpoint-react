@@ -69,11 +69,21 @@ export default Main
 import React, { Component } from "react"
 import Products from "../Products"
 import Comment from "../Comment"
+//listings = [
+//{
+//  name: 'xxx'
+//  price:'#'
+//}]
 
 class Products extends Component {
   render () {
+    let aList = this.props.listings.map((item,idx)=>{
+      return(
+        <li key={idx+1} ><Comment name={this.name=item.name} price={this.price=item.price} /></li>
+      )
+    })
     return (
-      <div/>
+      <div>{aList}</div>
     )
   }
 }
@@ -94,12 +104,20 @@ In the code snippet below we want text entered into the input field to be displa
 import React, { Component } from "react"
 
 class App extends Component {
+  this.state({
+    messege: ''
+  })
+  updateMsg(e){
+    this.setState({
+      messege: e.target.value
+    })
+  }
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" onChange={(e)=>{this.updateMsg(e)}} />
         </form>
         <p>Message: { this.state.message }</p>
       </div>
