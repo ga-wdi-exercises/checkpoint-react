@@ -137,7 +137,8 @@ export default App
 You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install react-router
+
 ```
 
 ### Question #7
