@@ -151,16 +151,33 @@ Edit the following code snippet. Add the `<Router>` provider component, and rewr
 class App extends Component {
   render () {
     return (
+      <Router>
       <div>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <Link to="/">Home</Link>
+          <Link to="/products">Products</Link>
+          <Link to="/cart">Shopping Cart</Link>
         </nav>
-        <main/>
+        <main>
+            <Switch>
+              <Route
+                path='/products'
+                component={Products}
+              />
+              <Route
+                path='/cart'
+                component={Cart}
+              />
+              <Route
+                path='/'
+                component={Home}
+              />
+            </Switch>
+          </main>
         <footer>This site is designed by us</footer>
       </div>
+      </Router>
     )
   }
 }
