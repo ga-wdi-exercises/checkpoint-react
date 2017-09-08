@@ -47,14 +47,14 @@ Assume we have defined a component named `Post` that is located in `/js/componen
 ```js
 import React, { Component } from "react"
 import Comments from "../Comments"
-import Post from "../Post"
+import Post from "./Post"
 
 class Main extends Component {
   render () {
     return (
       <div>
-        <Comments />
         <Post />
+        <Comments />
       </div>
     )
   }
@@ -75,10 +75,7 @@ import Comment from "../Comment"
 class Products extends Component {
   let newListings = this.props.listings.map((listing, index) => {
     return (
-      <div key={index}>
-        <p>{listing.name}<p>
-        <p>{listing.price}<p>
-      </div>
+      <Product name={listing.name} price={listing.price} />
     )
   })
   render () {
@@ -163,7 +160,7 @@ class App extends Component {
           <Link to="/cart">Shopping Cart</a>
         </nav>
         <main>
-        <Route exact path='/' render={() => <Products />} />
+        <Route exact path='/' render={() => <Home />} />
         <Route path="/products" component={Products} />
         <Route path="/cart" component={Cart} />
         <main/>
