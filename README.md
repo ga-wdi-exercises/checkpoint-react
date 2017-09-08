@@ -138,6 +138,8 @@ You are in your terminal, inside of an existing React application. Enter the com
 
 ```bash
 npm install react-router
+or
+npm install react-router-dom
 
 ```
 
