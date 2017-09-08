@@ -69,19 +69,18 @@ export default Main
 
 ```js
 import React, { Component } from "react"
-import Products from "../Products"
-import Comment from "../Comment"
+import Product from "../Product"
 
 class Products extends Component {
   render () {
-    var comments = this.props.listings.map( (listing, index) => {
+    var products = this.props.listings.map( (listing, index) => {
       return (
-        <Comment name={listing.name} price={listing.price} key={index} />
+        <Product name={listing.name} price={listing.price} key={index} />
       )
     })
 
     return (
-      <div>{comments}</div>
+      <div>{products}</div>
     )
   }
 }
