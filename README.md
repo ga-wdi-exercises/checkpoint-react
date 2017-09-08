@@ -43,7 +43,6 @@ export default App
 ### Question #3
 
 Assume we have defined a component named `Post` that is located in `/js/components/Post.js`. Edit the below code snippet to import the `Post` component and render it as a child within the `Main` UI. `Main` is located in `/js/components/Main.js`.
-<!-- instead of comments?  -->
 
 ```js
 import React, { Component } from "react"
@@ -67,6 +66,7 @@ export default Main
 ### Question #4
 
 `Products` receives a prop called `listings`, which contains an array of objects. Each object in `listings` contains a key for `name` (string) and `price` (number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as props.
+<!-- def know Im not reading this right, first though just listing items, the Comment portion confused me that it has the jsx to render the items in that component. soo here we are -->
 
 ```js
 import React, { Component } from "react"
