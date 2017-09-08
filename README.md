@@ -10,8 +10,11 @@ Edit the snippet below so that two properties – `title` and `author` – are p
 import React from "react"
 import ReactDOM from "react-dom"
 
+const title = "The Lost Boys"
+const author = "Peter Pan"
+
 ReactDOM.render(
-  <App />,
+  <App title={title} author={author}/>,
   document.getElementById('root')
 );
 ```
@@ -27,8 +30,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to ______</h1>
-        <footer>This site is designed by ______</footer>
+        <h1>Welcome to {this.props.title}</h1>
+        <footer>This site is designed by {this.props.author}</footer>
       </div>
     )
   }
@@ -44,11 +47,13 @@ Assume we have defined a component named `Post` that is located in `/js/componen
 ```js
 import React, { Component } from "react"
 import Comments from "../Comments"
+import Post from "./Post" // it's in the same directory
 
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
@@ -64,13 +69,18 @@ export default Main
 
 ```js
 import React, { Component } from "react"
-import Products from "../Products"
-import Comment from "../Comment"
+import Product from "../Product"
 
 class Products extends Component {
   render () {
+    var products = this.props.listings.map( (listing, index) => {
+      return (
+        <Product name={listing.name} price={listing.price} key={index} />
+      )
+    })
+
     return (
-      <div/>
+      <div>{products}</div>
     )
   }
 }
@@ -91,12 +101,26 @@ In the code snippet below we want text entered into the input field to be displa
 import React, { Component } from "react"
 
 class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      message: ''
+    }
+    this.handleInput = this.handleInput.bind(this)
+  }
+
+  handleInput (e) {
+    this.setState({
+      message: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" onChange={ this.handleInput }/>
         </form>
         <p>Message: { this.state.message }</p>
       </div>
@@ -114,7 +138,7 @@ export default App
 You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -127,16 +151,34 @@ Edit the following code snippet. Add the `<Router>` provider component, and rewr
 class App extends Component {
   render () {
     return (
-      <div>
-        <h1>Welcome to My shopping site</h1>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
-        </nav>
-        <main/>
-        <footer>This site is designed by us</footer>
-      </div>
+      <Router>
+        <div>
+          <h1>Welcome to My shopping site</h1>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/products">Products</Link>
+            <Link to="/cart">Shopping Cart</Link>
+          </nav>
+          <main>
+            <Route path="/" render={ () => {
+              return (
+                <Home/>
+              )
+            }}/>
+            <Route path="/products" render={ () => {
+              return (
+                <Products />
+              )
+            }}/>
+            <Route path="/cart" render={ () => {
+              return (
+                <ShoppingCart />
+              )
+            }}/>
+          </main>
+          <footer>This site is designed by us</footer>
+        </div>
+      </Router>
     )
   }
 }
@@ -153,9 +195,22 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 ```js
 // Assume all necessary components are imported above
 
+import axios from 'axios'
+
 class App extends Component {
   // Assume the constructor is complete
-  
+  componentDidMount () {
+    axios.get('http://api.example.com/info')
+      .then((res) => {
+        this.setState({
+          results: res
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   render () {
     return (
       <div>
