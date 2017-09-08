@@ -11,7 +11,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 ReactDOM.render(
-  <App />,
+  <App title={"Facebook"} author={"Mark Zuckerberg"} />,
   document.getElementById('root')
 );
 ```
@@ -27,8 +27,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to ______</h1>
-        <footer>This site is designed by ______</footer>
+        <h1>Welcome to {this.props.title} </h1>
+        <footer>This site is designed by {this.props.author} </footer>
       </div>
     )
   }
@@ -44,11 +44,13 @@ Assume we have defined a component named `Post` that is located in `/js/componen
 ```js
 import React, { Component } from "react"
 import Comments from "../Comments"
+import Post from "./Post"
 
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
@@ -69,7 +71,14 @@ import Comment from "../Comment"
 
 class Products extends Component {
   render () {
+    let products = this.props.listings.map((listing, index) => {
+      return (
+        <div key={index} name={listing.name} price={listing.price}> {listing.name} </div>
+      )
+      })
     return (
+      <div>
+        { products }
       <div/>
     )
   }
@@ -91,12 +100,23 @@ In the code snippet below we want text entered into the input field to be displa
 import React, { Component } from "react"
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      message: ""
+    }
+  }
+
+  handleInput (e) {
+    this.setState( {message: e.target.value} )
+  }
+
   render() {
     return (
       <div>
-        <form>
+      <form>
           <label>Input: </label>
-          <input type="text" />
+          <input onChange={this.handleInput(e)} type="text" />
         </form>
         <p>Message: { this.state.message }</p>
       </div>
@@ -114,7 +134,7 @@ export default App
 You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install --save react-router-dom
 ```
 
 ### Question #7
@@ -123,20 +143,43 @@ Edit the following code snippet. Add the `<Router>` provider component, and rewr
 
 ```js
 // Assume all necessary components are imported above
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom"
 
 class App extends Component {
   render () {
-    return (
+    return
+    <Router>
       <div>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
+          <a href="/home">Home</a>
           <a href="/products">Products</a>
           <a href="/cart">Shopping Cart</a>
         </nav>
+       <main>
+          <Switch>
+             <Route
+              path="/home"
+              component={Home}
+             />
+             <Route
+              path="/products"
+              component={Products}
+              />
+              <Route
+               path="/cart"
+               component={Cart}
+                />
+          </Switch>
         <main/>
         <footer>This site is designed by us</footer>
       </div>
+    </Router>
     )
   }
 }
@@ -155,12 +198,33 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 
 class App extends Component {
   // Assume the constructor is complete
-  
+  this.state = {
+    objectToUseLater: {}
+  }
+
+  componentDidLoad () {
+    $.ajax({
+      url: "www.google.com",
+      method: "GET",
+      dataType: "json"
+    }).then((response) => {
+      let dataArray = Object.values(response)
+      let data1 = dataArray['someKey']
+      let data2 = dataArray['someOtherKey']
+      let newDataObject = {
+        data: data1,
+        otherData: data2
+      }
+      this.setState( {objectToUseLater: newDataObject})
+    })
+  }
+
   render () {
     return (
       <div>
         <h1>Results</h1>
-        <div>{ this.state.results }</div>
+        <div>{ this.state.objectToUseLater.data }</div>
+        <div>{ this.state.objectToUseLater.otherData }</div>
       </div>
     )
   }
