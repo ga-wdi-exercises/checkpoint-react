@@ -11,7 +11,10 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 ReactDOM.render(
-  <App />,
+  <App
+    title={'Ready Player One'}
+    author={'Ernest Cline'}
+  />,
   document.getElementById('root')
 );
 ```
@@ -155,7 +158,7 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 
 class App extends Component {
   // Assume the constructor is complete
-  
+
   render () {
     return (
       <div>
