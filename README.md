@@ -193,10 +193,21 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 
 ```js
 // Assume all necessary components are imported above
+// --- Assuming axios would be imported too using import axios from 'axios' ---
 
 class App extends Component {
   // Assume the constructor is complete
-
+  componentDidMount() {
+    axios.get('http://api.tvmaze.com/search/shows?q=Girls')
+    .then((res) => {
+      this.setState({
+        results: res.data
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
   render () {
     return (
       <div>
