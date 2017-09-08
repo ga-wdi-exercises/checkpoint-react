@@ -75,7 +75,7 @@ import Comment from "../Comment"
 class Products extends Component {
   let newListings = this.props.listings.map((listing, index) => {
     return (
-      <Product name={listing.name} price={listing.price} />
+      <Product name={listing.name} price={listing.price} key={index}/>
     )
   })
   render () {
