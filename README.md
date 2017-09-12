@@ -11,7 +11,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 ReactDOM.render(
-  <App />,
+  <App title={'Blog'} author={'Blogger'}/>,
   document.getElementById('root')
 );
 ```
@@ -27,8 +27,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to ______</h1>
-        <footer>This site is designed by ______</footer>
+        <h1>Welcome to ______{this.props.title}</h1>
+        <footer>This site is designed by ______ {this.props.author}</footer>
       </div>
     )
   }
@@ -44,11 +44,13 @@ Assume we have defined a component named `Post` that is located in `/js/componen
 ```js
 import React, { Component } from "react"
 import Comments from "../Comments"
+import Post from './Post.js'
 
 class Main extends Component {
   render () {
     return (
       <div>
+        <Post />
         <Comments />
       </div>
     )
@@ -68,8 +70,17 @@ import Product from "../Product"
 
 class Products extends Component {
   render () {
+
+    var listings = this.props.listings.map((listing, index) => {
+      return(
+        <Product name={listing.name} price={listing.price} index={index} />
+      )
+    })
+
     return (
-      <div/>
+      <div>
+        {listings}
+      </div>
     )
   }
 }
@@ -90,12 +101,27 @@ In the code snippet below we want text entered into the input field to be displa
 import React, { Component } from "react"
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state {
+      message: ''
+    }
+
+    readMessage(e) {
+      e.preventDefault()
+      this.setState({
+        message: e.target.value
+      })
+    }
+
+  }
+
   render() {
     return (
       <div>
         <form>
           <label>Input: </label>
-          <input type="text" />
+          <input type="text" onChange= ((e) => this.readMessage(e))/>
         </form>
         <p>Message: { this.state.message }</p>
       </div>
@@ -113,7 +139,7 @@ export default App
 You are in your terminal, inside of an existing React application. Enter the command(s) needed to add `React Router` to the current app.
 
 ```bash
-# your command(s) here
+npm install react-router-dom
 ```
 
 ### Question #7
@@ -126,16 +152,40 @@ Edit the following code snippet. Add the `<Router>` provider component, and rewr
 class App extends Component {
   render () {
     return (
+      <Router>
       <div>
         <h1>Welcome to My shopping site</h1>
         <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/cart">Shopping Cart</a>
+          <Link to="/">Home</a>
+          <Link to="/products">Products</a>
+          <Link to="/cart">Shopping Cart</a>
         </nav>
-        <main/>
+        <main>
+            <div>
+              <Route path='/' render={() => {
+                return (<Home />)
+              }}
+              />
+            </div>
+
+            <div>
+              <Route path='/products' render={() => {
+                return (<Products />)
+              }}
+              />
+            </div>
+
+            <div>
+              <Route path='/cart' render={() => {
+                return (<ShoppingCart />)
+              }}
+              />
+            </div>
+
+          </main>
         <footer>This site is designed by us</footer>
       </div>
+      </Router>
     )
   }
 }
@@ -154,6 +204,16 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 
 class App extends Component {
   // Assume the constructor is complete
+
+  componentDidMount() {
+    $.ajax({
+      url: 'http://api.example.com/info',
+      method: 'GET',
+      dataType: 'jsonp'
+    }).then((response) => {
+      this.setState({results: response})
+    })
+  }
 
   render () {
     return (
