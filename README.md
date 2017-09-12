@@ -60,12 +60,11 @@ export default Main
 
 ### Question #4
 
-`Products` receives a prop called `listings`, which contains an array of objects. Each object in `listings` contains a key for `name` (string) and `price` (number). Edit the below code snippet to render a list of `Comment` components that take `name` and `price` as props.
+`Products` receives a prop called `listings`, which contains an array of objects. Each object in `listings` contains a key for `name` (string) and `price` (number). Edit the below code snippet to render a list of `Product` components that take `name` and `price` as props.
 
 ```js
 import React, { Component } from "react"
-import Products from "../Products"
-import Comment from "../Comment"
+import Product from "../Product"
 
 class Products extends Component {
   render () {
@@ -155,7 +154,7 @@ Edit the code snippet below so that once the `App` component has loaded, a GET r
 
 class App extends Component {
   // Assume the constructor is complete
-  
+
   render () {
     return (
       <div>
