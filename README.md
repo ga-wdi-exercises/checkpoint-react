@@ -10,6 +10,16 @@ You're going to build a simple contact list manager using React and React Router
 
 > See a demo of the final app at [http://quickest-beam.surge.sh/](http://quickest-beam.surge.sh/)
 
+Add Tweety as a contact:
+
+```
+{
+  name: "Tweety",
+  email: "tweety@gmail.com",
+  profile_picture: "https://upload.wikimedia.org/wikipedia/en/0/02/Tweety.svg"
+}
+```
+
 ### Setup
 
 Inside `index.js`, import React Router and pass it to `ReactDOM.render()` as the root component with `<App>` as a child component. We've imported the starter contacts for you, pass these in to your `<App>` component as a prop, `contacts`.
