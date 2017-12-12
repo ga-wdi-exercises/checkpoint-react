@@ -16,13 +16,13 @@ Inside `index.js`, import React Router and pass it to `ReactDOM.render()` as the
 
 ### `<App>`
 
-Your `<App>` component should accept `contacts` as props and use them to set the initial state for the component. It should render a div with a class name of `'App'`, your `<Header>` component and then either your `<ContactList>` or `<NewContact>` component, depending on the route.
+Your `<App>` component should accept `contacts` as a prop and use them to set the initial state for your component. It should render a div with a class name of `'App'`, your `<Header>` component and then either your `<ContactList>` or `<NewContact>` component, depending on the route.
 
 If the route is `"/"` then render the `<ContactList>` component; if the route is `"/new-contact"` then render the `<NewContact>` component;
 
 ### `<Header>`
 
-Your `<Header>` component should render a `<header>` element with an `<h1>` and a `<nav>` containing two links, one to the homepage (`"/"`) and the other to create a new contact (`"/new-contact"`).
+Your `<Header>` component should render a `<header>` element with an `<h1>` and a `<nav>` containing two React Router links, one to the homepage (`"/"`) and the other to create a new contact (`"/new-contact"`).
 
 ### `<ContactList>`
 
@@ -34,4 +34,6 @@ Your `<Contact>` component will render a single contact. It should contain an ou
 
 ### `<NewContact>`
 
-Your `<NewContact>` component should render an `<h1>` with a text of `New Contact` and a form with inputs for the `name`, `email` and `profile_picture`. When submitted, you should prevent the default behavior, create an object for your new contact and reset the state of your `<App>` component to the contact list including the new contact.
+Your `<NewContact>` component should render an `<h1>` with a text of `New Contact` and a form with inputs for the `name`, `email` and `profile_picture`.
+
+When submitted, you should save the new contact by updating your state inside of `<App>` and direct the user back to the homepage/list of contacts.
