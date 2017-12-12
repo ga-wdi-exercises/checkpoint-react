@@ -5,12 +5,6 @@ import ContactList from '../ContactList/ContactList'
 import NewContact from '../NewContact/NewContact'
 import Header from '../Header/Header'
 
-// let contact = {
-//   name: "Tweety",
-//   email: "tweety@gmail.com",
-//   profile_picture: "https://upload.wikimedia.org/wikipedia/en/0/02/Tweety.svg"
-// };
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,25 +13,17 @@ class App extends Component {
       contacts: this.props.contacts
     };
 
-    this.handleNewContact = this.handleNewContact.bind(this);
+    this.addContact = this.addContact.bind(this);
   }
 
-  handleNewContact(e) {
-    e.preventDefault()
-    let {name, email, image} = e.target.elements
-
+  addContact(contact) {
+    
     this.setState({
       contacts: [
         ...this.state.contacts,
-        {
-          name: name.value,
-          email: email.value,
-          image: image.value
-        }
+        contact
       ]
-    })
-
-    this.props.history.push('/')
+    });
   }
 
   render() {
@@ -45,7 +31,7 @@ class App extends Component {
         <Header />
         <main>
           <Route exact path="/" render={() => <ContactList contacts={this.state.contacts} />} />
-          <Route path="/new-contact" render={() => <NewContact handleNewContact={this.handleNewContact}/>} />
+          <Route path="/new-contact" render={(props) => <NewContact addContact={this.addContact} {...props} />} />
         </main>
       </div>;
   }
