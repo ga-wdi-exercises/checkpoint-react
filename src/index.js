@@ -1,8 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './components/App/App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
 
-import contacts from "./contacts.json";
+import './styles/index.css'
+import App from './components/App/App'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import contacts from './contacts.json'
+
+ReactDOM.render(
+  <Router>
+    <App contacts={contacts} />
+  </Router>,
+  document.getElementById('root')
+)
