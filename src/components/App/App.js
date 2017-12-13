@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       contacts: this.props.contacts
     }
+    this.newContact = this.newContact.bind(this)
   }
 
   newContact (contact) {

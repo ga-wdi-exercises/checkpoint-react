@@ -4,42 +4,37 @@ class NewContact extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      contact: {
-        name: '',
-        email: '',
-        profile_picture: ''
-      }
+      name: '',
+      email: '',
+      profile_picture: ''
     }
   }
 
   setName (e) {
-    let theContact = this.state.contact
-    theContact.name = e
     this.setState({
-      contact: theContact
+      name: e.target.value
     })
+    console.log(this.state.name)
   }
 
   setEmail (e) {
-    let theContact = this.state.contact
-    theContact.ename = e
     this.setState({
-      contact: theContact
+      email: e.target.value
     })
+    console.log(this.state.email)
   }
 
   setPhoto (e) {
-    let theContact = this.state.contact
-    theContact.profile_picture = e
     this.setState({
-      contact: theContact
+      profile_picture: e.target.value
     })
   }
 
   handleSubmit (e) {
     e.preventDefault()
-    this.props.newContact(this.state.contact)
+    this.props.newContact(this.state)
     this.props.history.push('/')
+    console.log(this.state.contact)
   }
 
   render () {
