@@ -1,8 +1,14 @@
 import React, {Component} from 'react'
 
+import Contact from '../Contact/Contact'
+
 class Contactlist extends Component {
 	render() {
-		return <div className="contact-list">contact list</div>
+		let contacts = this.props.contacts.map((contact, index) => {
+			return <Contact key={index} contact={contact} />
+		})
+
+		return <div className="contact-list">{contacts}</div>
 	}
 }
 
