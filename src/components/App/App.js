@@ -25,8 +25,11 @@ class App extends Component {
 							path="/"
 							render={() => <ContactList contacts={this.state.contacts} />}
 						/>
-						<Route path="/new-contact" render={() => <NewContact />} />
-						<Route path="/*" render={() => <Redirect to="/stocks" />} />
+						<Route
+							path="/new-contact"
+							render={() => <NewContact contacts={this.state.contacts} />}
+						/>
+						<Route path="/*" render={() => <Redirect to="/" />} />
 					</Switch>
 				</main>
 			</div>
