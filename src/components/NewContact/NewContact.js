@@ -42,12 +42,12 @@ class NewContact extends Component {
       <div>
         <h1>New Contact</h1>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>Name</label>
-          <input type='text' onChange={(e) => this.setName(e)} />
-          <label>E-Mail</label>
-          <input type='text' onChange={(e) => this.setEmail(e)} />
-          <label>Photo</label>
-          <input type='text' onChange={(e) => this.setPhoto(e)} />
+          <p><label>Name</label><br />
+            <input type='text' onChange={(e) => this.setName(e)} /></p>
+          <p><label>E-Mail</label><br />
+            <input type='text' onChange={(e) => this.setEmail(e)} /></p>
+          <p><label>Photo</label><br />
+            <input type='text' onChange={(e) => this.setPhoto(e)} /></p>
           <input type='submit' />
         </form>
       </div>
