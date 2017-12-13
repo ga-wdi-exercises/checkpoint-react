@@ -22,13 +22,13 @@ class ContactList extends Component {
       return (
         <div key={index}>
           <li>
-            <Link to={`/contacts/${contact.name}`}>{Contact}</Link>
+            <Contact />
           </li>
         </div>
       )
     })
 
-    return(
+    return (
       <div className="contact-list">
         {showContacts}
       </div>

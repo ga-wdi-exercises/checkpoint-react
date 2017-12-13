@@ -14,6 +14,11 @@ class Contact extends Component {
   render () {
     return (
       <p>hello contact</p>
+      <div className="contact">
+        <img src=`${contact.profile_picture}` alt='contact picture'/>
+        <h3>{contact.name}</h3>
+        <h4>{contact.email}</h4>
+      </div>
     )
   }
 }
