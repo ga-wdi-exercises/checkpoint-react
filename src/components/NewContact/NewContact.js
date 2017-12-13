@@ -12,15 +12,10 @@ class NewContact extends Component {
       email: '',
       profile_picture: '',
     }
-    this.onSubmit = this.onSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
 
   }
 
-  onSubmit(e) {
-    e.preventDefault()
-
-  }
 
   handleInputChange(e) {
     const value = e.target.value;
@@ -58,7 +53,7 @@ class NewContact extends Component {
             value={this.state.profile_picture}
             onChange={this.handleInputChange} />
         </label>
-        <input type="submit" value="Submit" onClick={this.onSubmit}/>
+        <input type="submit" value="Submit" onSubmit={this.props.onSubmit}/>
       </div>
     )
   }

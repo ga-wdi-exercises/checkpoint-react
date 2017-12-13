@@ -18,13 +18,28 @@ class App extends Component {
     }
   }
 
+  onSubmit(e) {
+    e.preventDefault()
+    let newContacts = this.state.contacts.slice()
+    this.setState({
+      hasSearched: true
+    })
+  }
+
+  handleInputChange(e) {
+    const value = e.target.value;
+    const name = e.target.name;
+    this.setState({
+      [name]: value
+    });
+  }
 
   render() {
     return <div className="App">
       <Header />
-      <Route exact path="/new-contact" render={()=> <NewContact/>}/>
+      <Route exact path="/new-contact" render={(props)=> {...props} <NewContact onSubmit={this.onSubmit}/>}/>
       <Route
-        path='/'
+        exact path='/'
         render={(props) => (
           <ContactList
             {...props}
