@@ -8,9 +8,9 @@ class NewContact extends Component {
     };
   }
   addAttribute(e) {
-    this.setState: {
+    this.setState({
       // Add attribute to contact
-    }
+    });
   }
   render() {
     return (
