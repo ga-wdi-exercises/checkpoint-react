@@ -37,7 +37,7 @@ class App extends Component {
   render() {
     return <div className="App">
       <Header />
-      <Route exact path="/new-contact" render={(props)=> {...props} <NewContact onSubmit={this.onSubmit}/>}/>
+      <Route exact path="/new-contact" render={()=> <NewContact onSubmit={this.onSubmit}/>}/>
       <Route
         exact path='/'
         render={(props) => (
