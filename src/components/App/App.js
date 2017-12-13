@@ -26,7 +26,7 @@ class App extends Component {
           {/* <ContactList /> */}
         <main>
           <Switch >
-            <Route path='/' component={ContactList} />
+            <Route path='/' render={(props) => <ContactList contacts={this.state.contacts} />} />
             <Route path='/new-contact' component={NewContact} />
           </Switch>
         </main>
