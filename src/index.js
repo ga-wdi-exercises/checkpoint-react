@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
+import {
+  BrowserRouter as Router
+} from "react-router-dom"
 import App from './components/App/App';
 
 import contacts from "./contacts.json";
+import './styles/index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Router>
+    <App contacts={contacts} />
+  </Router>,
+  document.getElementById('root')
+);
