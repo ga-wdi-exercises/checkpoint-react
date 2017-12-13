@@ -7,53 +7,36 @@ class NewContact extends Component {
   constructor(props) {
     super(props)
     // initialize state
-    this.state = {
-      name: '',
-      email: '',
-      profile_picture: '',
-    }
-    this.handleInputChange = this.handleInputChange.bind(this)
-
-  }
-
-
-  handleInputChange(e) {
-    const value = e.target.value;
-    const name = e.target.name;
-    this.setState({
-      [name]: value
-    });
   }
   render() {
 
     return(
       <div>
         <h1>New Contact</h1>
-        <label>
-          <input
-            name="name"
-            type="text"
-            placeholder="name"
-            value={this.state.name}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          <input
-            name="email"
-            type="email"
-            placeholder="email"
-            value={this.state.email}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          <input
-            name="profile_picture"
-            type="text"
-            placeholder="profile_picture"
-            value={this.state.profile_picture}
-            onChange={this.handleInputChange} />
-        </label>
-        <input type="submit" value="Submit" onSubmit={this.props.onSubmit}/>
+        <form onSubmit={(e) => this.props.onSubmitForm(e)}>
+          <label>
+            <input
+              name="name"
+              type="text"
+              placeholder="name"
+              onChange={this.props.handleInputChange} />
+          </label>
+          <label>
+            <input
+              name="email"
+              type="email"
+              placeholder="email"
+              onChange={this.props.handleInputChange} />
+          </label>
+          <label>
+            <input
+              name="profile_picture"
+              type="text"
+              placeholder="profile_picture"
+              onChange={this.props.handleInputChange} />
+          </label>
+          <input type="submit" value="Submit"/>
+        </form>
       </div>
     )
   }

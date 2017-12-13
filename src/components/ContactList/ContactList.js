@@ -5,6 +5,10 @@ import Contact from '../Contact/Contact.js'
 
 
 class ContactList extends Component {
+  componentWillMount(){
+    this.props.setRedirectFalse()
+  }
+
   render() {
 
     return(
