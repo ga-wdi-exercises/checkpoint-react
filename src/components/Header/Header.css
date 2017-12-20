@@ -1,0 +1,15 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5% 0 5%;
+}
+
+.flex{
+  display:flex;
+}
+
+.flex a{
+  margin: auto 10px auto 10px;
+  text-decoration: none;
+  color: black;
+}
