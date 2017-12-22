@@ -4,7 +4,7 @@ class Contact extends Component {
 
 	render() {
 		return (
-			<div key={this.props.index} className="contact">
+			<div className="contact">
 				<img src={this.props.contact.profile_picture} alt="{this.props.contact.name}" />
 
 
