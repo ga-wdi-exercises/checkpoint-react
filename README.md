@@ -47,3 +47,19 @@ Your `<Contact>` component will render a single contact. It should contain an ou
 Your `<NewContact>` component should render an `<h1>` with a text of `New Contact` and a form with inputs for the `name`, `email` and `profile_picture`.
 
 When submitted, you should save the new contact by updating your state inside of `<App>` and direct the user back to the homepage/list of contacts.
+
+## Rubric
+- App component is defined and exported
+- App component accepts the `contacts` json objects as a prop and the `contacts` json object is properly passed
+- Router is defined and setup using the browser History API
+- Router includes a route for the homepage (`"/"`) and for the new contact page (`"/new-contact"`)
+- Header component is defined and exported
+- Header component contains a title and two `<Link>`s, one to the homepage and the other to the new contact page
+- ContactList component is defined and exported
+- ContactList component iterates through the contacts, rendering a Contact component for each
+- Contact component is defined and exported
+- Contact component is rendering the image, name and email address of a contact
+- NewContact is defined and exported
+- NewContact contains a form that adds a new contact to the parent App component state
+
+
