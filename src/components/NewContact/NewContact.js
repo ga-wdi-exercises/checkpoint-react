@@ -63,7 +63,7 @@ class NewContact extends Component {
 						/>
 					</p>
 
-					<input type="Submit" />
+					<input type="submit" />
 				</form>
 			</div>
 		)
