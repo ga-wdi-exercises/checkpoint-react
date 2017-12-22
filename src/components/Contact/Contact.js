@@ -2,6 +2,15 @@ import { Route, Link, Redirect, Switch } from "react-router-dom";
 import React, { Component } from 'react'
 
 class Contact extends Component{
+  render () {
+    return (
+      <div className="contact">
+        <img src={this.props.contact.profile_picture} alt="{this.props.contact.name}" />
+        <h3>{this.props.name}</h3>
+        <h4>{this.props.email}</h4>
+      </div>
+    )
+  }
 
 }
 

@@ -10,6 +10,6 @@ import contacts from "./contacts.json";
 
 ReactDOM.render(
   <Router>
-    <App prop1={contacts} />
-  </Router>,
-   document.getElementById('root'));
+   <App contacts={contacts}/>
+ </Router>,
+  document.getElementById('root'));

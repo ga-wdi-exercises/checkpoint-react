@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
-import Contact from "../Contact/Contact";
-import ContactList from "../ContactList/ContactList";
-import Header from "../Header/Header";
-import NewContact from "../NewContact/NewContact";
-import { Route, Link, Redirect, Switch } from "react-router-dom";
+import {Route, Link, Redirect, Switch} from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
+
+
+import Header from '../Header/Header'
+import ContactList from '../ContactList/ContactList'
+import NewContact from '../NewContact/NewContact'
 
 class App extends Component {
-  constructor(props){
-      super(props)
-      this.state = {
-        contacts: []
-      }
-      this.handleNewContact = this.handleNewContact.bind(this)
-    }
+ constructor(props) {
+   super(props)
 
-  handleNewContact(newContact) {
-    let tempContact = this.state.contacts
-    tempContact.push(newContact)
-    this.setState({
-      contacts: tempContact
-    })
-    this.props.history.push(`/*/${newContact.symbol}`)
-  }
-  render() {
-    return (
-      <div>
-        <div className="App">
-          <p>app</p>
-        </div>;
-      </div>
-    )
-  }
+   this.state ={
+     contacts: this.props.contacts
+   }
+ }
+ render() {
+   return (
+     <div className='App'>
+           <Header />
+           <main>
+             <Switch>
+               <Route exact path="/" render={() => <ContactList contacts={this.state.contacts} />} />
+               <Route path="/new-contact" render={() => <NewContact contacts={this.state.contacts} />} />
+             </Switch>
+           </main>
+     </div>
+   )
+ }
 }
 
 export default App;
