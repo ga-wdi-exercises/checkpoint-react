@@ -38,34 +38,4 @@ describe("Contact component:", () => {
     const component = shallow(<NewContact />);
     expect(component.find("input[name='image']").exists()).toBe(true);
   });
-
-  // it("should have a state attribute for the name that should update when the user types in an input", () => {
-  //   const component = shallow(<NewContact />);
-
-  //   expect(component.state("name")).toBe("");
-  //   component
-  //     .find("input[name='name']")
-  //     .simulate("change", { target: { value: contact.name } });
-  //   expect(component.state("name")).toBe(contact.name);
-  // });
-
-  // it("should have a state attribute for the name that should update when the user types in an input", () => {
-  //   const component = shallow(<NewContact />);
-
-  //   expect(component.state("email")).toBe("");
-  //   component
-  //     .find("input[name='email']")
-  //     .simulate("change", { target: { value: contact.email } });
-  //   expect(component.state("email")).toBe(contact.email);
-  // });
-
-  // it("should have a state attribute for the name that should update when the user types in an input", () => {
-  //   const component = shallow(<NewContact />);
-
-  //   expect(component.state("image")).toBe("");
-  //   component
-  //     .find("input[name='image']")
-  //     .simulate("change", { target: { value: contact.profile_picture } });
-  //   expect(component.state("image")).toBe(contact.profile_picture);
-  // });
 });
