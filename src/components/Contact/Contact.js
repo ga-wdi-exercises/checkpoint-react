@@ -12,7 +12,7 @@ class Contact extends Component {
     render () {
       return (
         <div className='contact'>
-          <img src={this.state.contact.imageUrl} alt={this.state.contact.name} className='contact-image' />
+          <img src={this.state.contact.profile_picture} alt={this.state.contact.name} className='contact-image' />
           <h3>{this.state.contact.name}</h3>
             <h4>email: {this.state.contact.email}</h4>
         </div>
