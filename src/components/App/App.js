@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Contact from "../Contact/Contact";
+import contacts from "../../contacts";
 
 class App extends Component {
   constructor(props) {
