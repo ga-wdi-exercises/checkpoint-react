@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
+import ContactList from '../ContactList/ContactList'
+import NewContact from '../NewContact/NewContact'
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>app</p>
+        <Route path="/" component={ContactList} />
+        <Route path="/new-contact" component={NewContact} />
       </div>
     )
   }
