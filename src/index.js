@@ -1,7 +1,9 @@
 import React from 'react';
+import {BrowswerRouter as Router} from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App/App';
+
 
 import contacts from "./contacts.json";
 
