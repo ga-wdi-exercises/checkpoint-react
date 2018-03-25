@@ -13,7 +13,7 @@ class App extends Component {
         email: "",
         profile_picture: ""
       },
-      contacts: []
+      contacts: this.props.contacts
     };
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeUrl = this.handleChangeUrl.bind(this);
@@ -41,8 +41,15 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.props);
+    console.log("Old array: " + this.state.contacts.length);
     var newArray = this.state.contacts.slice();
+    newArray.push({
+      name: this.state.contact.name,
+      email: this.state.contact.email,
+      profile_picture: this.state.contact.profile_picture
+    });
+    this.setState({ contacts: newArray });
+    console.log("New array: " + newArray.length);
   }
 
   render() {
