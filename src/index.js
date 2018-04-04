@@ -1,8 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './components/App/App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './styles/index.css'
+import {BrowserRouter as Router} from 'react-router-dom'
+import App from './components/App/App'
+import Hello from './components/Hello/Hello'
 
-import contacts from "./contacts.json";
+import contacts from './contacts.json';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>,
+    document.getElementById('root')
+)
