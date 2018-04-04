@@ -17,15 +17,6 @@ class App extends Component {
    this.AddContacts = this.AddContacts.bind(this)
  }
 
-//  AddContacts (event) {
-//    event.preventDefault()
-//    console.log(this.refs)
-//    // this.setState({
-//    //   NewContact: this.state.contacts.push
-//    // })
-//    // contacts.push(contact, i)
-//  }
-
  AddContacts () {
    // let array = this.state.contacts
    // contact.push(contact)
@@ -41,7 +32,7 @@ class App extends Component {
      <div>
       <nav className='nav'>
         <h1>Contact Manager</h1>
-        {/* <Link to='/ContactList'>Contacts </Link> */}
+        <Link to='/ContactList'>Contacts </Link>
         <Link to='/ContactList'> Home </Link>
         <Link to='/NewContact'> New Contacts </Link>
       </nav>
