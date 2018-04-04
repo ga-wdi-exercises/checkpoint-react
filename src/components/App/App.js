@@ -4,6 +4,7 @@ import { Link, Switch, Route, Redirect } from 'react-router-dom'   // good  Link
 import ContactsData from '../../contacts.json'
 import ContactList from '../ContactList/ContactList.js'
 import NewContact from '../NewContact/NewContact.js'
+import Contact from '../Contact/Contact.js'
 
 class App extends Component {
   constructor () {
@@ -29,7 +30,7 @@ class App extends Component {
       <div>
         <nav className='nav'>
           <h1>Contact Manager</h1>
-          <Link to='/ContactList'>Contacts </Link>
+          {/* TWO <Link>s, one to the homepage and the other to the new contact page */}
           <Link to='/ContactList'> Home </Link>
           <Link to='/NewContact'> New Contacts </Link>
         </nav>
@@ -37,6 +38,7 @@ class App extends Component {
           <Switch>
             <Route path='/NewContact' render={() => <NewContact AddContacts={this.AddContacts} />} />
             <Route path='/contacts' render={() => <ContactList contacts={this.state.contacts} />} />
+            <Route path='/contact' render={() => <Contact contact={this.state.contacts} />} />
             <Route path='/*' render={() => <Redirect to='/contacts' />} />
           </Switch>
         </main>
