@@ -2,24 +2,7 @@ import React, { Component } from 'react';
 
 class NewContact extends Component {
   render() {
-    return (
-      <div className="new-contact">
-        <h1>New Contact</h1>
-        <form action="submit" method="post">
-          <label>
-            name:
-            <input type="text" name="name" />
-            <br />
-            email:
-            <input type="text" name="email" />
-            <br />
-            profile_picture:
-            <input type="text" name="profile_picture" />
-            <br />
-          </label>
-        </form>
-      </div>
-    );
+    return <div>New Contact</div>;
   }
 }
 
