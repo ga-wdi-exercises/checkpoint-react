@@ -11,7 +11,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>app</p>
+        <h1>Contact Manager</h1>
+        <Link to="/ContactList"> Home </Link>
+        <Link to="/NewContact"> New Contacts </Link>
       </div>
     );
   }
