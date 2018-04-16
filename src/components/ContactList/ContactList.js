@@ -2,7 +2,19 @@ import React, { Component } from 'react';
 
 class ContactList extends Component {
   render() {
-    return <div>Qya</div>;
+    return (
+      <div className="contact-list">
+        {this.props.contacts.map(qt => {
+          return (
+            <div className="contact-listlist">
+              <img src={qt.profile_picture} alt="id-pic" />
+              <h3>{qt.name}</h3>
+              <h3>{qt.email}</h3>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 
