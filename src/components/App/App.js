@@ -1,51 +1,46 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import ContactList from '../ContactList/ContactList.js';
 import NewContact from '../NewContact/NewContact';
-import ContactsData from '../../contacts.json';
+import Header from '../Header/Header';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    // accept contacts as a prop and
+    // use them to set the initial state for your component.
     this.state = {
-      contacts: ContactsData
+      contacts: this.props.contacts
     };
-    console.log(this.state.contacts);
-    this.AddContacts = this.AddContacts.bind(this);
+    this.handleNewContact = this.handleNewContact.bind(this);
   }
 
-  AddContacts(contact) {
-    let array = this.state.contacts;
+  handleNewContact(contact) {
+    this.state.contacts;
     contact.push(contact);
+
     this.setState({
       contacts: contact
     });
-    console.log('this function worked');
   }
-
   render() {
     return (
       <div className="App">
-        <div className="Navbar">
-          <h1>Contact Manager</h1>
-          <Link to="/contacts"> Home </Link>
-          <Link to="/newContact"> New Contacts </Link>
-        </div>
-        <div className="main">
-          <Switch>
-            <Route
-              path="/contacts"
-              render={() => <ContactList contacts={this.state.contacts} />}
-            />
-            <Route
-              path="/newcontact"
-              render={() => <NewContact contact={this.state.contacts} />}
-            />
-          </Switch>
-        </div>
+        <Header />
+        <Switch>
+          <Route
+            path="/new-contact"
+            render={() => (
+              <NewContact handleNewContact={this.handleNewContact} />
+            )}
+          />
+          <Route
+            path="/"
+            render={() => <ContactList contacts={this.state.contacts} />}
+          />
+        </Switch>
       </div>
     );
   }
 }
-
 export default App;

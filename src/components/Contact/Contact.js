@@ -4,9 +4,9 @@ class Contact extends Component {
   render() {
     return (
       <div className="contact">
-        <img />
-        <h3>name</h3>
-        <h4>emailaddress</h4>
+        <img src={this.props.profile_picture} />
+        <h3>{this.props.email}</h3>
+        <h4>{this.props.email}</h4>
       </div>
     );
   }

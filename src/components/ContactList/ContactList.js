@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
+import Contact from '../Contact/Contact';
 
 class ContactList extends Component {
   render() {
     return (
       <div className="contact-list">
-        {this.props.contacts.map(qt => {
-          return (
-            <div className="contact-listlist">
-              <img src={qt.profile_picture} alt="id-pic" />
-              <h3>{qt.name}</h3>
-              <h3>{qt.email}</h3>
-            </div>
-          );
-        })}
+        {this.props.contacts.map(contact => (
+          <Contact key={contact.name} {...contact} />
+        ))}
       </div>
     );
   }
