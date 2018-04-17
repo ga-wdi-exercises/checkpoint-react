@@ -4,40 +4,25 @@ import ContactList from '../ContactList/ContactList.js';
 import NewContact from '../NewContact/NewContact';
 import Header from '../Header/Header';
 
+// const App = (props) => {
 class App extends Component {
   constructor(props) {
     super(props);
-    // accept contacts as a prop and
-    // use them to set the initial state for your component.
     this.state = {
       contacts: this.props.contacts
     };
-    this.handleNewContact = this.handleNewContact.bind(this);
-  }
-
-  handleNewContact(contact) {
-    this.state.contacts;
-    contact.push(contact);
-
-    this.setState({
-      contacts: contact
-    });
   }
   render() {
+    let contacts = this.state.contacts;
     return (
       <div className="App">
         <Header />
         <Switch>
           <Route
             path="/new-contact"
-            render={() => (
-              <NewContact handleNewContact={this.handleNewContact} />
-            )}
+            render={() => <NewContact contacts={contacts} />}
           />
-          <Route
-            path="/"
-            render={() => <ContactList contacts={this.state.contacts} />}
-          />
+          <Route path="/" render={() => <ContactList contacts={contacts} />} />
         </Switch>
       </div>
     );
