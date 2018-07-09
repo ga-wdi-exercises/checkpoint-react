@@ -1,4 +1,4 @@
-[
+ const contacts = [
   {
     "name": "Bugs Bunny",
     "email": "bugs@gmail.com",
@@ -53,3 +53,4 @@
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/3/3c/Wile_E._Coyote.svg"
   }
 ]
+module.exports = contacts
