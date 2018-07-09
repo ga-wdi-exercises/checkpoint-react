@@ -20,8 +20,8 @@ class App extends Component {
 
   render () {
     return (
-      <Router>
-        <div className='App'>
+      <div className='App'>
+        <Router>
           <Header />
           <Switch>
             <Route
@@ -33,8 +33,8 @@ class App extends Component {
               render={(routerProps) => <ContactList {...routerProps} {...this.state} />}
             />
           </Switch>
-        </div>
-      </Router>
+        </Router>
+      </div>
     )
   }
 }
