@@ -6,3 +6,5 @@ import App from './components/App/App';
 import contacts from "./contacts.json";
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
+export default contacts
