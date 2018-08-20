@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
+
 
 class Header extends Component {
-}
+
   render() {
     return (<div className="App">
         <header>
-            
+        <h1>Contacts</h1>
         </header>
         <nav>
-        <h1><Link to="/">Home</Link></h1>
-        <h1><Link to="/about">About</Link></h1>
+        <Link to="/">Home</Link>
+        <Link to="/new-contact">New Contact</Link>
         </nav>
       </div>
       )
   }
 }
 
-export default App;
+export default Header;
