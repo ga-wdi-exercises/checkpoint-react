@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       // where contacts is the array of contacts from contacts.json
-      contacts: this.props.contacts
+      contacts: []
     };
   }
   componentDidMount() {
@@ -36,7 +36,7 @@ class App extends Component {
             <Route
               path="/"
               render={routerProps => (
-                <ContactList {...routerProps} {...this.state} />
+                <ContactList {...this.state} {...routerProps} />
               )}
             />
             <Route path="/new-contact" component={NewContact} />
