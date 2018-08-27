@@ -3,12 +3,12 @@
 // take contacts as a property(prop) and render <Contact> component for each contact object inside of the contacts prop
 
 import React, { Component } from "react";
-import Contact from "../Contact";
+import Contact from "../Contact/Contact";
 // import contacts from "../../contacts.json";
 
 class ContactList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
   render() {
     return (

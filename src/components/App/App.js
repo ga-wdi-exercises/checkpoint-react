@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import ContactList from "..ContactList/ContactList";
+import ContactList from "../ContactList/ContactList";
 import NewContact from "../NewContact/NewContact";
-import Header from "..Header/Header";
+import Header from "../Header/Header";
 // Error:./src/components/App/App.js
 // Module not found: Can't resolve '..ContactList / ContactList' in ' / Users / schoi / dev / wdi / sandbox / checkpoints / checkpoint - react / src / components / App'
 // import contacts from "./contacts.json";
@@ -25,10 +25,10 @@ class App extends Component {
     //     If route is "/new-contact" then render <NewContact />
 
     return (
-      <div className="app">
+      <div className="App">
         <Header />
-        <Route path="/" component={<ContactList />} />
-        <Route path="/new-contact" component={<NewContact />} />
+        <Route path="/" component={ContactList} />
+        <Route path="/new-contact" component={NewContact} />
       </div>
     );
   }
