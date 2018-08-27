@@ -1,19 +1,20 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   // Should render a <header> element with an <h1> and <nav> containing two React router <Link>s:
   // one to the homepage('/') and the other to create a new contact ('/new-contact)
   render() {
     return (
-      <div>
-        <header>
-          <h1>Contacts</h1>
-        </header>
+      <header>
+        <h1>Contacts</h1>
         <nav>
-          {/* link to 1 to homepage aka contactlist */}
-          {/* link to 2 to new contact */}
+          <Link to="/">
+            <h1>Home</h1>
+          </Link>
+          <Link to="/new-contact">New Contact</Link>
         </nav>
-      </div>
+      </header>
     );
   }
 }

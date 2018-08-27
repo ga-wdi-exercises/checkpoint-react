@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import contacts from "../../contacts.json";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +20,8 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
+        <Route path="/" component={<ContactList />} />
+        <Route path="/new-contact" component={<NewContact />} />
       </div>
     );
   }
