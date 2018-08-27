@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import ContactList from "..ContactList/ContactList";
+import NewContact from "../NewContact/NewContact";
+import Header from "..Header/Header";
+// Error:./src/components/App/App.js
+// Module not found: Can't resolve '..ContactList / ContactList' in ' / Users / schoi / dev / wdi / sandbox / checkpoints / checkpoint - react / src / components / App'
+// import contacts from "./contacts.json";
+// I feel like my contacts is breaking everything
 
 class App extends Component {
   constructor(props) {
