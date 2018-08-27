@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import Header from "../Header/Header";
 import ContactList from "../ContactList/ContactList";
 import NewContact from "../NewContact/NewContact";
-import Header from "../Header/Header";
-// Error:./src/components/App/App.js
-// Module not found: Can't resolve '..ContactList / ContactList' in ' / Users / schoi / dev / wdi / sandbox / checkpoints / checkpoint - react / src / components / App'
+import { Route, Router, Switch } from "react-router-dom";
+
 // import contacts from "./contacts.json";
 // I feel like my contacts is breaking everything
 
@@ -16,6 +15,11 @@ class App extends Component {
       contacts: this.props.contacts
     };
   }
+  componentDidMount() {
+    this.setState({
+      contacts: this.props.contacts
+    });
+  }
 
   render() {
     // Should render a div with class name of app
@@ -26,9 +30,18 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
-        <Route path="/" component={ContactList} />
-        <Route path="/new-contact" component={NewContact} />
+        <Router>
+          <Header />
+          <Switch>
+            <Route
+              path="/"
+              render={routerProps => (
+                <ContactList {...routerProps} {...this.state} />
+              )}
+            />
+            <Route path="/new-contact" component={NewContact} />
+          </Switch>
+        </Router>
       </div>
     );
   }

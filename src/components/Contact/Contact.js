@@ -5,19 +5,12 @@
 import React, { Component } from "react";
 
 class Contact extends Component {
-  constructor() {
-    super();
-  }
   renders() {
     return (
       <div className="contact">
-        <img src={contact.profile_picture} alt="">
-          this is the image for profile
-        </img>
-        <h3>this should contain the name from props.contacts.name component</h3>
-        <h4>
-          this should contain the emaile from props.contacts.email component
-        </h4>
+        <img src={this.props.profile_picture} alt="profile" />
+        <h3> {this.props.name}</h3>
+        <h4> {this.props.email}</h4>
       </div>
     );
   }

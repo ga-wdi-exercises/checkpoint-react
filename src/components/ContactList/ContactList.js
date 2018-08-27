@@ -4,18 +4,14 @@
 
 import React, { Component } from "react";
 import Contact from "../Contact/Contact";
-// import contacts from "../../contacts.json";
 
 class ContactList extends Component {
-  constructor() {
-    super();
-  }
   render() {
-    return (
-      <div className="contact-list">
-        <Contact />
-      </div>
-    );
+    let contactList = this.props.contacts.map(contact => {
+      return <Contact />;
+    });
+
+    return <div className="contact-list">{contactList}</div>;
   }
 }
 // Question: how do you have the Contact List component take contacts as a prop and render the single Contact.
