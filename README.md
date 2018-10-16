@@ -1,12 +1,20 @@
 # Checkpoint: React
 
+## Setup
+
+Clone this repo.
+
+**Before you begin anything, run `npm install`.**
+
 ## Before You Begin
 
-Every component has a test suite associated with it. **Before you begin anything, run `npm install`.**
+Every component has a test suite associated with it. 
 
 To run the tests in the terminal, run `npm test`. The tests will rerun every time you save a file. When you start, all of the tests will be failing; your goal is to make as many pass as you can in the hour provided.
 
 > HINT: read the output of the failing tests.
+
+> Don't write anything in the `.test.js` files.
 
 ## Instructions
 
