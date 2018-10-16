@@ -2,7 +2,7 @@
 
 ## Setup
 
-Clone this repo.
+Fork and clone this repo.
 
 **Before you begin anything, run `npm install`.**
 
