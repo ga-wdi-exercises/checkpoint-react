@@ -1,9 +1,7 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
-import ReactDOM from "react-dom";
+import { shallow } from "enzyme";
 import App from "./App";
 import { Route } from "react-router-dom";
-import ContactList from "../ContactList/ContactList";
 
 describe("App component:", () => {
   it("has a `.App` class", () => {

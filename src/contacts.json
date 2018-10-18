@@ -16,7 +16,7 @@
     "email": "fudd@gmail.com",
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/6/66/ElmerFudd.gif"
   }, {
-    "name": "Sylvester",
+    "name": "Sylvester J. Pussycat Sr.",
     "email": "sylvester@gmail.com",
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/8/82/Sylvester_the_Cat.svg"
   }, {
@@ -48,8 +48,8 @@
     "email": "runner@gmail.com",
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/e/ee/Roadrunner_looney_tunes.png"
   }, {
-    "name": "Wile E. Cayote",
-    "email": "wile_e@gmail.com",
+    "name": "Wile E. Coyote",
+    "email": "wile_e@acme.com",
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/3/3c/Wile_E._Coyote.svg"
   }
 ]

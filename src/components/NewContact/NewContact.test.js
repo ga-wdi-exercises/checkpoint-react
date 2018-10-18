@@ -36,6 +36,6 @@ describe("Contact component:", () => {
 
   it("has an image input", () => {
     const component = shallow(<NewContact />);
-    expect(component.find("input[name='image']").exists()).toBe(true);
+    expect(component.find("input[name='profile_picture']").exists()).toBe(true);
   });
 });
