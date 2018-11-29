@@ -13,22 +13,13 @@ class Contact extends Component {
   //     )
   //   }
 
-  componentDidMount() {
-    const symbol = this.props.match.params.symbol;
-    const stock = listOfStock.filter(stock => stock.symbol === symbol)[0];
-    this.props.setStock(stock);
-  }
-
   render() {
     return (
       <div>
-        <div>{this.props.stocks.name}</div>
-        <div>{this.props.stocks.symbol}</div>
-        <div>{this.props.stocks.lastPrice}</div>
-        <div>{this.props.stocks.change}</div>
-        <div>{this.props.stocks.high}</div>
-        <div>{this.props.stocks.low}</div>
-        <div>{this.props.stocks.open}</div>
+        <h3>{this.props.contact}</h3>
+        {this.props.stocks.name}
+        <h4>email</h4>
+        <img />
       </div>
     );
   }
