@@ -15,12 +15,12 @@ describe("Contact component:", () => {
   });
 
   it("has a `.contact` class", () => {
-    const wrapper = shallow(<Contact contact={contact} />);
+    const wrapper = shallow(<Contact {...contact} />);
     expect(wrapper.hasClass("contact")).toEqual(true);
   });
 
   it("has an image, h3 and h4", () => {
-    const wrapper = shallow(<Contact contact={contact} />);
+    const wrapper = shallow(<Contact {...contact} />);
     expect(
       wrapper.containsAnyMatchingElements([
         <img src={contact.profile_picture} alt="" />,
@@ -31,7 +31,7 @@ describe("Contact component:", () => {
   });
 
   it("passes through props", () => {
-    const wrapper = shallow(<Contact contact={contact} />);
+    const wrapper = shallow(<Contact {...contact} />);
     expect(wrapper.find("img").prop("src")).toBe(contact.profile_picture);
     expect(wrapper.find("h3").text()).toBe(contact.name);
     expect(wrapper.find("h4").text()).toBe(contact.email);
