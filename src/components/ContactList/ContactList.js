@@ -7,7 +7,7 @@ class ContactList extends Component {
 
     let contactList = this.props.contacts.map(contact => {
       return (
-        <Contact {...this.props}/>
+        <Contact {...this.props.contacts}/>
       )
     })
     return (
