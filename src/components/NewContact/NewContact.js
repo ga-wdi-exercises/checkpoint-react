@@ -7,9 +7,9 @@ class NewContact extends Component {
             <div>
                 <h1>New Contact</h1>
                 <form>
-                    <input>name</input>
-                    <input>email</input>
-                    <input>profile_picture</input>
+                    <input type="text" name="name" value="name">name</input>
+                    <input type="text" name="email">email</input>
+                   <input type="image"></input>
                 </form>
             </div>
         );
