@@ -8,7 +8,7 @@ Fork and clone this repo.
 
 ## Before You Begin
 
-Every component has a test suite associated with it.
+Every component has a test suite associated with it. There are 18 tests in total, grouped into 5 suites.
 
 To run the tests in the terminal, run `npm test`. The tests will rerun every
 time you save a file. When you start, all of the tests will be failing; your
