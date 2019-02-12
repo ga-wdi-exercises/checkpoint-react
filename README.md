@@ -27,7 +27,7 @@ CSS has been provided in `src/styles/index.css`.
 > See a demo of the final app at
 > [http://quickest-beam.surge.sh/](http://quickest-beam.surge.sh/)
 
-Add Tweety as a contact:
+Add Tweety as a contact in `contacts.json`:
 
 ```
 {
