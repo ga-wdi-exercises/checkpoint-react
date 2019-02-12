@@ -6,8 +6,8 @@ import NewContact from "../NewContact/NewContact";
 import { Route, Link, Switch } from "react-router-dom";
 
 class App extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             contacts: this.props.contacts
         };
@@ -25,9 +25,9 @@ class App extends Component {
                     }}  />
                     <Route path="new-contact" render={routerProps => {
                         return <NewContact contacts={...this.state} {...routerProps} />
-                    }} */}
-                    <Route path="/" component={ContactList} />
-                    <Route path="new-contact" component={NewContact} />
+                    }} /> */}
+                    // <Route path="/" component={ContactList} />
+                    // <Route path="new-contact" component={NewContact} />
                     }}
                 </Switch>
             </div>
