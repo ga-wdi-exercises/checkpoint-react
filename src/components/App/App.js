@@ -8,8 +8,9 @@ import { Route, Link, Switch } from "react-router-dom";
 class App extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            contacts: this.props.contacts
+            // contacts: this.props.contacts
         };
     }
     render() {
