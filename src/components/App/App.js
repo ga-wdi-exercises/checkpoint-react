@@ -8,6 +8,7 @@ import NewContact from '../NewContact/NewContact'
 class App extends Component {
   constructor(props) {
     super(props)
+    //set initial state
     this.state= {
       contacts: this.props.contacts
     }
