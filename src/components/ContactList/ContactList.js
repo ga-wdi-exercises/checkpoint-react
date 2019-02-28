@@ -9,12 +9,12 @@ class ContactList extends Component {
                     <div key={cv._id} className='contact-list'>
                         <p>{cv.name}</p>
                         <p>{cv.email}</p>
-                        <img src={cv.profile.picture} alt={cv.name} />
+                        <img src={cv.profile_picture} alt={cv.name} />
                     </div>
                 )
             })
             return (
-                <div className='contact-list'>
+                <div >
                     {contactList}
                 </div>
             );
