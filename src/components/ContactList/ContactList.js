@@ -8,7 +8,7 @@ class ContactList extends Component {
         <div className="contact-list" key={item.contact}>
             <img src={item.profile_picture} alt={item.name} />
 					<h3>{item.name}</h3>
-				<h1>{item.email}</h1> 
+				<h4>{item.email}</h4> 
         </div>
       );
     });
