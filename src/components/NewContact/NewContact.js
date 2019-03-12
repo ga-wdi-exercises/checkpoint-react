@@ -19,10 +19,21 @@ class NewContact extends Component {
             <div className="form" onSubmit={this.handleSubmit}>
                 <h1>New Contact</h1>
                 <form>
-                    <input onChange={this.updateEmail} type="text" placeholder="name" name="name" />
-                    <input onChange={this.updatePassword} type="text" placeholder="email" name="email" />
-                    <input onChange={this.updatePasswordConf} type="text" placeholder="picture URL" name="profile_picture" />
-                    <input type="submit" placeholder="Submit" />
+                    <p>
+                        <label for="name">Name</label>
+                        <br/><input onChange={this.handleUpdate} type="text" name="name" />
+                    </p>
+                    <p>
+                        <label for="email">Email</label>
+                        <br/><input onChange={this.handleUpdate} type="text" name="email" />
+                    </p>
+                    <p>
+                        <label for="profile_picture">Image</label>
+                        <br/><input onChange={this.handleUpdate} type="text" name="profile_picture" />
+                    </p>
+                    <p>
+                        <input type="submit" placeholder="Submit" />
+                    </p>
                 </form>
             </div>
         );
