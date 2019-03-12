@@ -24,8 +24,6 @@ class App extends Component {
   render() {
     return <div className="App">
       <Header />
-
-      <p>app</p>
       <Switch>
         <Route path="/" exact render={() => <ContactList contacts={this.state.contacts} />} />
         <Route path="/new-contact" render={(props) => <NewContact {...props} addContact={this.addContact} />} />
