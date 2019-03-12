@@ -17,7 +17,6 @@ class NewContact extends Component {
     }
 
     handleSubmit(){
-        console.log("!")
         const newContact = {
             name: this.state.name,
             email: this.state.email,

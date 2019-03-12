@@ -12,8 +12,9 @@ class App extends Component {
   }
 
   addContact(contact){
-    this.setState({contacts: this.state.contact.push(contact)})
-    console.log("Something happened!")
+    const updatedContactList = this.state.contacts.push(contact)
+    this.setState({contacts: updatedContactList})
+    console.log("the list is "+ updatedContactList)
   }
 
   render() {
