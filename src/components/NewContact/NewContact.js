@@ -7,7 +7,8 @@ class NewContact extends Component {
     this.state = {
       email: undefined,
       name: undefined,
-      profile_picture: undefined
+      profile_picture: undefined,
+      redirect: false
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,14 +28,20 @@ class NewContact extends Component {
 
   handleSubmit(e) {
     this.props.addContact(this.state);
+    this.setState({
+      redirect: true
+    });
     e.preventDefault();
   }
 
-  componentDidUpdate() {
-    <Redirect to="/" />
-  }
 
   render() {
+
+    const {redirect} = this.state;
+    if(redirect){
+      return (<Redirect to="/" />);
+    }
+
     return (
       <div>
         <h1>New Contact</h1>
