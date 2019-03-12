@@ -19,8 +19,10 @@ class App extends Component {
     <BrowserRouter>
     <div>
     <h1 className='App'>Contacts</h1> 
+    <nav>
     <Route exact path='/' component={ContactList} />
     <Route exact path='/new-contact' component={NewContact} />
+    </nav>
     <Link to='/'>Home</Link>
     <Link to='/new-contact'>New Contact</Link> 
     </div>
