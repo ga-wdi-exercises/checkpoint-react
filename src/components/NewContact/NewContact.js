@@ -7,8 +7,13 @@ class NewContact extends Component {
             name: '',
             email: '',
             profile_picture: ''
+        }
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
-}
+
+    handleUpdate(event){
+        this.setState({[event.target.name]: event.target.value})
+    }
     render() {
         return (
             <div className="form" onSubmit={this.handleSubmit}>

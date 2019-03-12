@@ -8,7 +8,7 @@ class ContactList extends Component {
     }
 
     render() {
-        const displayList = this.state.contactList.map(contact => <Contact info={contact}/>)
+        const displayList = this.state.contactList.map(contact => <Contact contact={contact}/>)
         return (
             <div className="contact-list">
                 {displayList}
