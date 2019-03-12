@@ -1,8 +1,16 @@
+const express = require('express');
+const parser = require('body-parser');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './components/App/App';
+import App from './components/App/App.js';
 
-import contacts from "./contacts.json";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const app = express();
+
+app.set('port', process.env.PORT || 3001);
+app.use(parser.json());
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
