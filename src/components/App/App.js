@@ -13,7 +13,7 @@ class App extends Component {
     return(
       <div className="App">
         <Header />
-        <Route path="/" exact component={ContactList}/>
+        <Route path="/" exact render={() => <ContactList contacts={this.state.contacts}/>}/>
         <Route path="/new-contact" component={NewContact}/>
       </div>
     )
