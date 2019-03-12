@@ -12,9 +12,13 @@ class App extends Component {
   }
 
   addContact(contact){
+    //Thought process: in App, have a function that would take in a new contact variable and push it
+    //to the state. Send that function into a callback for NewContact, and invoke it after creating the new
+    //contact object. I don't get an error, and this function IS getting called, but the new contact isn't getting
+    //added to the state.
     const updatedContactList = this.state.contacts.push(contact)
     this.setState({contacts: updatedContactList})
-    console.log("the list is "+ updatedContactList)
+    console.log("This function is hit")
   }
 
   render() {
