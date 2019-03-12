@@ -1,0 +1,21 @@
+.ContactList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ContactList-header {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 100px;
+}
+
+.ContactList-main {
+  margin-top: 10vh;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
