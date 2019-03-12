@@ -31,12 +31,18 @@ export default class componentName extends Component {
       <div>
         <h1>New Contact</h1>
         <form onSubmit={this.onSubmit}>
-          <label>Name</label>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-          <label>Email</label>
-          <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-          <label>Profile Picture</label>
-          <input type="text" name="profile_picture" value={this.state.profile_picture} onChange={this.handleChange} />
+          <p>
+            <label>Name</label><br />
+            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+          </p>
+          <p>
+            <label>Email</label><br />
+            <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+          </p>
+          <p>
+            <label>Profile Picture</label><br />
+            <input type="text" name="profile_picture" value={this.state.profile_picture} onChange={this.handleChange} />
+          </p>
           <input type="submit" value="Submit" />
         </form>
 
