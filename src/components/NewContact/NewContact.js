@@ -14,14 +14,17 @@ export default class componentName extends Component {
   }
 
   handleChange(event) {
+    console.log('hit')
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
   onSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
+    console.log(this.state);
+    this.props.addContact(this.state);
+    this.props.history.push('/');
   }
   render() {
     return (
@@ -29,11 +32,11 @@ export default class componentName extends Component {
         <h1>New Contact</h1>
         <form onSubmit={this.onSubmit}>
           <label>Name</label>
-          <input type="text" name="name" value={this.state.name} onClick={this.handleChange} />
+          <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
           <label>Email</label>
-          <input type="text" name="email" value={this.state.email} onClick={this.handleChange} />
+          <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
           <label>Profile Picture</label>
-          <input type="text" name="profile_picture" value={this.state.profile_picture} onClick={this.handleChange} />
+          <input type="text" name="profile_picture" value={this.state.profile_picture} onChange={this.handleChange} />
           <input type="submit" value="Submit" />
         </form>
 

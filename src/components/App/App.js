@@ -11,6 +11,14 @@ class App extends Component {
     this.state = {
       contacts: props.contacts
     }
+    this.addContact = this.addContact.bind(this)
+  }
+
+  addContact(newContact) {
+    this.setState({
+      contacts: [...this.state.contacts, newContact]
+    })
+    alert('added ' + newContact.name);
   }
 
   render() {
@@ -20,8 +28,7 @@ class App extends Component {
       <p>app</p>
       <Switch>
         <Route path="/" exact render={() => <ContactList contacts={this.state.contacts} />} />
-        <Route path="/new-contact" render={() => <NewContact />} />
-
+        <Route path="/new-contact" render={(props) => <NewContact {...props} addContact={this.addContact} />} />
       </Switch>
 
     </div>;
