@@ -8,13 +8,20 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = { contacts: props.contacts }
+    this.addContact = this.addContact.bind(this)
   }
+
+  addContact(contact){
+    this.setState({contacts: this.state.contact.push(contact)})
+    console.log("Something happened!")
+  }
+
   render() {
     return(
       <div className="App">
         <Header />
         <Route path="/" exact render={() => <ContactList contacts={this.state.contacts}/>}/>
-        <Route path="/new-contact" component={NewContact}/>
+        <Route path="/new-contact" render={() => <NewContact pushContact={this.addContact}/>}/>
       </div>
     )
   }
