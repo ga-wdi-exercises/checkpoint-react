@@ -15,13 +15,17 @@ class App extends Component {
   }
 
   render() {
-    return <div>
+    return (
+    <BrowserRouter>
+    <div>
     <h1 className='App'>Contacts</h1> 
-    <Contact />
-    <ContactList />
-    <Header />
-    <NewContact />
+    <Route exact path='/' component={ContactList} />
+    <Route exact path='/new-contact' component={NewContact} />
+    <Link to='/'>Home</Link>
+    <Link to='/new-contact'>New Contact</Link> 
     </div>
+    </BrowserRouter>
+    );
   }
 }
 
