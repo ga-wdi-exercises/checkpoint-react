@@ -3,15 +3,12 @@ import Contact from '../Contact/Contact'
 
 export default class ContactList extends Component {
   render() {
-    return (
-      <div>
-        <div className='contact-list'>{Contact}</div>
-      </div>
-    )
+    let allContacts = this.props.contacts.map((contact, idx) => {
+      return <Contact contact={contact} key={idx} />
+    })
+    return <div className='contact-list'>{allContacts}</div>
   }
-}
 
-{
   /* <ContactList>
   <ContactList> should take contacts as a prop
 

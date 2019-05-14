@@ -13,10 +13,10 @@ export default class NewContact extends Component {
   }
 }
 
-{
-  /* <NewContact>
+// {
+/* <NewContact>
 Your <NewContact> component should render:
 
 An <h1> with a text of New Contact
 A form with inputs for the name, email and profile_picture. */
-}
+// }
