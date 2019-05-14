@@ -1,5 +1,9 @@
 [
   {
+    "name": "Tweety",
+    "email": "tweety@gmail.com",
+    "profile_picture": "https://upload.wikimedia.org/wikipedia/en/0/02/Tweety.svg"
+  }, {
     "name": "Bugs Bunny",
     "email": "bugs@gmail.com",
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/1/17/Bugs_Bunny.svg"
@@ -52,4 +56,5 @@
     "email": "wile_e@acme.com",
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/3/3c/Wile_E._Coyote.svg"
   }
+  
 ]
