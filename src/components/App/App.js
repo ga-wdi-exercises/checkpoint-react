@@ -12,8 +12,8 @@ constructor(props){
 }
   render() {
     return <div className="App">
-        <h1>{Header}</h1>
-        <Route path='/' render={ContactList} />
+        <Header />
+        <Route exact path='/' render={ContactList} />
         <Route exact path='/new-contact' render={NewContact} />
       </div>;
   }

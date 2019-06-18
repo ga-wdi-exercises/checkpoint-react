@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import information from '../../contacts.json'
 
 class Contact extends Component {
+    constructor(props){
+        super(props)
+    }
     render() {
         return (
             <div className="contact">
-                <h3>name</h3>
-                <h4>email</h4>
+                <img src='(`${this.props.contact.profile_picture}`)'/>
+                <h3>{this.props.contact.name}</h3>
+                <h4>{this.props.contact.email}</h4>
             </div>
         );
     }
