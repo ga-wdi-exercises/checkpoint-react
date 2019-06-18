@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 class ContactList extends Component {
+
     render() {
         return (
-            <div>
+            <div className="contact-list">
                 
             </div>
         );
