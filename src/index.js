@@ -5,5 +5,4 @@ import './styles/index.css';
 import App from './components/App/App';
 
 import contacts from "./contacts.json";
-
 ReactDOM.render(<Router><App /></Router>, document.getElementById("root"));
