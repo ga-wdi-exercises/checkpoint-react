@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import { Link } from 'react-router-dom'
 
 class ContactList extends Component {
     render() {
-
+        return (
+            <div>Test</div>
+        )
     }
 }
 
