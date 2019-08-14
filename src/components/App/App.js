@@ -8,12 +8,22 @@ import ContactList from "../ContactList/ContactList";
 import NewContact from "../NewContact/NewContact";
 
 class App extends Component {
+
+
   render() {
+    // console.log(ContactsData)
     return <div className="App">
         <Header />
-       
-        <ContactList />
-        <NewContact />
+        <main>
+          <Switch>
+            {/* <Route path="/" exact render={() => <Redirect to="/Home" />} /> */}
+            <Route path="/Home" exact render={() => <ContactList ContactsData={ContactsData}/>}/> 
+            <Route path="/NewContact" exact render={() => <NewContact />}/> 
+          </Switch>
+      </main>
+
+        
+        
       </div>;
   }
 }
@@ -29,11 +39,6 @@ export default App;
 
 
 
-// <main>
-// <Switch>
-//   <Route path="/" exact render={() => <Redirect to="/Home" />} />
-//   <Route path="/Home" exact render={() => <Home />}/>
-//   <Route path="/About" exact render={() => <About />}/>
-//   <Route path="/NewBookForm" exact render={() => <NewBookForm handleCancelClick={this.handleCancelClick}/>}/>
-// </Switch>
-// </main>
+
+
+{/* <Route path="/NewBookForm" exact render={() => <NewBookForm handleCancelClick={this.handleCancelClick}/>}/> */}

@@ -6,11 +6,16 @@ import Contact from '../Contact/Contact';
 
 
 class ContactList extends Component {
-    render() {
+    
+    render(props) {
+        // console.log(this.props.ContactsData)
+        let contactArray = []
+    
+
       return (
-          <div className="contactlist">
+          <div className="contact-list">
               {/* //this needs to repeat */}
-              <Contact />
+              <Contact ContactsData={this.props.ContactsData}/>
           </div>
       );
     }
@@ -19,3 +24,43 @@ class ContactList extends Component {
 
 
 export default ContactList;
+
+
+
+
+
+
+
+
+
+// render() {
+//     let birdArray = []
+//     console.log(this.props)
+  
+//     for (let i = 0; i < 8; i++) {
+//         let imageLink = BirdData[i].image
+        
+//         let homepage = BirdData[i].homepage
+//         // console.log(imageLink)
+//         birdArray.push( <HomeBird homepage={homepage} imageLink={imageLink} key={i} onClick={() => this.handleClick}/>)  
+//     }
+//     console.log(BirdData);
+//     return (
+  
+  
+       
+       
+//             <div>
+//             {/* <h2 className="homeBirdsLabel">Birds</h2> */}
+//             {/* <p className="homeAddNewBirdButton">(Add a new bird)</p> */}
+//             <nav >
+            
+//             </nav>
+//             <div className="homeBirdContainer">
+//             {birdArray}
+  
+//             </div>
+//             {/* <Show /> */}
+  
+//         </div>
+       

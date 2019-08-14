@@ -6,12 +6,14 @@ import ContactsData from "../../contacts.json"
 
 
 class Contact extends Component {
-    render() {
+    render(props) {
+        let ContactsData = this.props.ContactsData
+        console.log(ContactsData)
       return (
-          <div className="contactContainer">
-              <img className="contactIMG" src=""></img>
-              <p className="contactName" >temp name</p>
-              <p className="contactEmail">temp@email.com</p>
+          <div className="contact">
+              <img className="contactIMG" src={ContactsData[1].profile_picture}></img>
+              <h3 className="contactName" >{ContactsData[1].name}</h3>
+              <h4 className="contactEmail">{ContactsData[1].email}</h4>
            
           </div>
       );
