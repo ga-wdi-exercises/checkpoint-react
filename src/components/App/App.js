@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Route, Link, Switch } from "react-router-dom";
+import ContactList from "../ContactList/ContactList";
+import Header from "../Header/Header";
+import NewContact from "../NewContact/NewContact";
 
 class App extends Component {
   constructor(props) {
