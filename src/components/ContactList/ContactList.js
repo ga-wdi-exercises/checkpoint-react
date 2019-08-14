@@ -5,9 +5,9 @@ class ContactList extends Component {
     let characters = this.props.driverData.map((characters, index) => {
       return (
         <div class="contact" key={index}>
-          <img>{this.props.contacts.profile_picture}</img>
-          <h3>{this.props.contacts.name}</h3>
-          <h4>{this.props.contacts.email}</h4>
+          <img>{characters.profile_picture}</img>
+          <h3>{characters.name}</h3>
+          <h4>{characters.email}</h4>
         </div>
       );
     });

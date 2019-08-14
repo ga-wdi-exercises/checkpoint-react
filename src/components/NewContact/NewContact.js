@@ -15,6 +15,9 @@ class NewContact extends Component {
     evt.preventDefault();
     this.setState({ [evt.target.name]: evt.target.value });
   }
+  handleSubmit() {
+    this.props.updateCharacters(this.state);
+  }
 
   render() {
     return (
@@ -38,7 +41,7 @@ class NewContact extends Component {
             className="email"
             type="text"
             name="email"
-            name={this.state.name}
+            name={this.state.email}
             onChange={this.handleChange}
           />
         </div>
@@ -48,10 +51,16 @@ class NewContact extends Component {
             className="image"
             type="text"
             name="image"
-            name={this.state.name}
+            name={this.state.image}
             onChange={this.handleChange}
           />
         </div>
+        <input
+          className="submit"
+          type="submit"
+          value="Submit"
+          onClick={this.handleSubmit}
+        />
       </div>
     );
   }

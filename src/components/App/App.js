@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from "../Header/Header.js";
 import ContactList from "../ContactList/ContactList.js";
 import NewContact from "../NewContact/NewContact.js";
@@ -9,9 +9,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      contacts: props.contacts
+      contacts: this.props.contacts
     };
   }
+  updateCharacters(character) {
+    this.state.contacts.push(character);
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,7 +28,13 @@ class App extends Component {
             <ContactList contacts={this.state.contacts} {...routerProps} />
           )}
         />
-        <Route path="/new-contact" exact component={NewContact} />
+        <Route
+          path="/new-contact"
+          exact
+          render={routerProps => (
+            <NewContact contacts={this.state.contacts} {...routerProps} />
+          )}
+        />
       </div>
     );
   }
