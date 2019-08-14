@@ -8,9 +8,9 @@ import Contact from '../Contact/Contact';
 class ContactList extends Component {
     render() {
       return (
-          <div className="">
-           <h3>contactlist header</h3>
-           <p>contactlist p</p>
+          <div className="contactlist">
+              {/* //this needs to repeat */}
+              <Contact />
           </div>
       );
     }

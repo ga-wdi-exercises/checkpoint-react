@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return <div className="App">
         <Header />
-        <Contact />
+       
         <ContactList />
         <NewContact />
       </div>;
@@ -19,3 +19,21 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+// <main>
+// <Switch>
+//   <Route path="/" exact render={() => <Redirect to="/Home" />} />
+//   <Route path="/Home" exact render={() => <Home />}/>
+//   <Route path="/About" exact render={() => <About />}/>
+//   <Route path="/NewBookForm" exact render={() => <NewBookForm handleCancelClick={this.handleCancelClick}/>}/>
+// </Switch>
+// </main>

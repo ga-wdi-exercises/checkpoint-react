@@ -8,8 +8,15 @@ class NewContact extends Component {
     render() {
       return (
           <div className="">
-           <h3>NewContact header</h3>
-           <p>NewContact p</p>
+           <h1>New Contact</h1>
+           <p>Name</p>
+           <input></input>
+           <p>Email</p>
+           <input></input>
+           <p>Image</p>
+           <input></input>
+           <br />
+           <button>Submit</button>
           </div>
       );
     }
