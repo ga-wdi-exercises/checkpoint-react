@@ -51,5 +51,9 @@
     "name": "Wile E. Coyote",
     "email": "wile_e@acme.com",
     "profile_picture": "https://upload.wikimedia.org/wikipedia/en/3/3c/Wile_E._Coyote.svg"
+  }, {
+    "name": "Tweety",
+    "email": "tweety@gmail.com",
+    "profile_picture": "https://upload.wikimedia.org/wikipedia/en/0/02/Tweety.svg"
   }
 ]
