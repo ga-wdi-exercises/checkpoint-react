@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
+import Contact from "../Contact/Contact";
 
 class ContactList extends Component {
-    constructor(props) {
-        super(props)
-        this.state= {
-          contacts: props.contacts
-        }
-      }
       render() {
+        let cl = this.props.contacts.map((singleContact, key) => {
+          return <Contact contact={singleContact} key={key} />
+        })
           return (
             <div className="contact-list">
-             
+              {cl}
             </div>
           )
       }
 }
-
 
 export default ContactList;
