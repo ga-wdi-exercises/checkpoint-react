@@ -1,17 +1,13 @@
 import React, { Component } from "react";
+import Contact from "../../components/Contact/Contact";
 
 class ContactList extends Component {
   render() {
-    let characters = this.props.driverData.map((characters, index) => {
-      return (
-        <div class="contact" key={index}>
-          <img>{characters.profile_picture}</img>
-          <h3>{characters.name}</h3>
-          <h4>{characters.email}</h4>
-        </div>
-      );
-    });
-    return <div>{characters}</div>;
+    return (
+      <div class="contact-list">
+        <Contact contacts={this.props.contacts} />
+      </div>
+    );
   }
 }
 

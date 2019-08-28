@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./styles/index.css";
 import App from "./components/App/App.js";
-import contacts from "./contacts.json";
+import contacts from "../src/contacts.json";
 
 ReactDOM.render(
   <Router>

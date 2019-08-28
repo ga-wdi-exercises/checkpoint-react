@@ -6,7 +6,7 @@ class NewContact extends Component {
     this.state = {
       name: "",
       email: "",
-      image: ""
+      profile_picture: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +22,7 @@ class NewContact extends Component {
 
   render() {
     return (
-      <div>
+      <form>
         <div>
           <h1>New Contact</h1>
         </div>
@@ -32,7 +32,6 @@ class NewContact extends Component {
             className="name"
             type="text"
             name="name"
-            name={this.state.name}
             onChange={this.handleChange}
           />
         </div>
@@ -42,17 +41,15 @@ class NewContact extends Component {
             className="email"
             type="text"
             name="email"
-            name={this.state.email}
             onChange={this.handleChange}
           />
         </div>
         <div>
-          <p>Image</p>
+          <p>profile_picture</p>
           <input
-            className="image"
+            className="profile_picture"
             type="text"
-            name="image"
-            name={this.state.image}
+            name="profile_picture"
             onChange={this.handleChange}
           />
         </div>
@@ -62,7 +59,7 @@ class NewContact extends Component {
           value="Submit"
           onClick={this.handleSubmit}
         />
-      </div>
+      </form>
     );
   }
 }

@@ -7,7 +7,6 @@ import NewContact from "../NewContact/NewContact.js";
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       contacts: this.props.contacts
     };
@@ -19,7 +18,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>{this.state.contacts}</p>
         <Header />
         <Route
           path="/"
