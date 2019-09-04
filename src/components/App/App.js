@@ -16,6 +16,8 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.contacts);
+
     return (
       <div className="App">
         <Header />

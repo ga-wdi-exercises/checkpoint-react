@@ -3,11 +3,10 @@ import Contact from "../../components/Contact/Contact";
 
 class ContactList extends Component {
   render() {
-    return (
-      <div class="contact-list">
-        <Contact contacts={this.props.contacts} />
-      </div>
-    );
+    let contacts = this.props.contacts.map(contact => {
+      return <Contact contacts={contact} />;
+    });
+    return <div className="contact-list">{contacts}</div>;
   }
 }
 
