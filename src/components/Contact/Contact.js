@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 
 class Contact extends Component {
-    constructor() {
-        super()
-
-    }
-
 
     render() {
         return (
             <div  className="contact">
-                <img src={Contact.img}/>
-                <h3>{Contact.name}</h3>
-                <h4>{Contact.email}</h4>
+                <img src={this.props.contact.profile_picture} alt={this.props.contact.name}/>
+                <h3>{this.props.contact.name}</h3>
+                <h4>{this.props.contact.email}</h4>
                
             
             </div>

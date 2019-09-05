@@ -6,15 +6,6 @@ import Header from '../Header/Header'
 import NewContact from  '../NewContact/NewContact'
 
 
-
-
-
-
-
-
-
-
-
 class App extends Component {
   constructor(){
     super(props)
