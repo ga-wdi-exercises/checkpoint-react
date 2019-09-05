@@ -1,22 +1,15 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
+import  Contact from '../Contact/Contact';
 
 class ContactList extends Component {
-    constructor() {
-        super()
-
-    }
-
 
     render() {
         return (
-            <div>
-                <h1>{this.props.contacts}</h1>
-                <Contact />
-                <div className="contact-list">
+            <div className="contact-list">
+                {this.props.contacts.map((contact, index) => { 
+                    return <Contact contact={contact} key={index}/>
 
-                </div>
-            
+                })}
             </div>
         )
     }

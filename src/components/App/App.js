@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css'
-import {Link, Route} from 'react-router-dom'
-import ContactList from '../ContactList/ContactList'
-import Header from '../Header/Header'
+import {Route} from 'react-router-dom';
+import ContactList from '../ContactList/ContactList';
+import Header from '../Header/Header';
 import NewContact from  '../NewContact/NewContact'
 
 
@@ -16,13 +15,22 @@ class App extends Component {
   
   }
 
+  handleSubmit = (obj) => {
+    let newArray = this.state.contacts;
+    newArray.push(obj)
+    this.setState({
+      contacts: newArray,
+    })
+  }
+
   render() {
-    return <div className="App">
-        <p>app</p>
+    return (
+    <div className="App">
         <Header/>
-          <Route path="/" exact render={<ContactList/>}></Route>/>
-          <Route path="/" exact render={<NewContact/>}></Route>/>
-      </div>;
+          <Route path="/" exact render={(props) => <ContactList contacts={this.state.contacts} {...props}/>}/>
+          <Route path="/new-contact" render={(props) => <NewContact handleSubmit={this.handleSubmit} {...props}/>}/>
+      </div>
+      );
   }
 }
 
