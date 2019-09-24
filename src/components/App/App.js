@@ -12,6 +12,13 @@ class App extends Component {
     this.state = {
       contacts: props.contacts
     }
+    this.createContact = this.createContact.bind(this)
+  }
+
+  createContact(info){
+    this.setState({
+      contacts: this.props.contacts.push(info)
+    })
   }
 
   render() {
@@ -20,23 +27,23 @@ class App extends Component {
       <div className="App">
         <div>
         <Header>
-        
+
         </Header>
         </div>
         
-      <Switch>
-        <Route path="/" render={props => {
+      
+        <Route path="/" exact render={props => {
           return <ContactList contacts={this.state.contacts} {...props} />
         }}>
           
         </Route>
 
-        <Route path="/new-contact" render={props => {
+        <Route path="/new-contact" exact render={props => {
           return <NewContact {...props} />
         }} >
           
         </Route>
-      </Switch>
+      
         
 
       </div>
