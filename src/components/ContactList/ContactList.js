@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import Contacts from "../Contact/Contact"
+import ContactData from "../../contacts.json"
 
 
 class ContactList extends Component {
@@ -11,13 +11,17 @@ class ContactList extends Component {
     }
     render() {
         return (
+             {ContactData.map(contact, index => {
+                return  <div>
 
-            <div>
-            <Contacts /> 
-
-            
-            <div className="contact-list" />
-            </div>
+                <Contacts /> 
+    
+                
+                <div className="contact-list" />
+                </div>
+            }
+                
+        }
 
 
         )

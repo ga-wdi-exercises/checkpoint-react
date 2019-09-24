@@ -14,8 +14,8 @@ class App extends Component {
   }
   render() {
     return <div className="App">
-      <Header />
-        <p>app</p>
+      <Header className="Header"/>
+        
       </div>;
 
       <Switch>
