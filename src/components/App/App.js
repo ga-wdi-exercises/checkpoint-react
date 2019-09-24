@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
+
 
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      contacts: props.contacts
+    }
+  }
+  render() { 
     return <div className="App">
-        <p>app</p>
+        <div>app</div>
+      
       </div>;
   }
 }
+
+
+
 
 export default App;

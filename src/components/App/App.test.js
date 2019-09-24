@@ -3,6 +3,7 @@ import { shallow } from "enzyme";
 import App from "./App";
 import { Route } from "react-router-dom";
 
+
 describe("App component:", () => {
   it("has a `.App` class", () => {
     const component = shallow(<App />);
