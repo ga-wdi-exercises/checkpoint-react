@@ -14,7 +14,7 @@ describe("Header component:", () => {
     expect(component.find("nav")).toBeDefined();
   });
 
-  it("has two React Router Links", () => {
+  it("is broken", () => {
     const component = shallow(<Header />);
     expect(component.find(Link).length).toEqual(2);
   });
